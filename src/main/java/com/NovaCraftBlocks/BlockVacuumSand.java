@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import java.util.Random;
 
@@ -20,11 +20,11 @@ public class BlockVacuumSand extends Block {
 		this.setHarvestLevel("shovel", 0);
 		this.setStepSound(soundTypeSand);
 	}
-	
+
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
 		return null;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

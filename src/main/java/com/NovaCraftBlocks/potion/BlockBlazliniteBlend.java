@@ -1,8 +1,8 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import java.util.Random;
 
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockBlazliniteBlend extends Block {
-	
+
 	public BlockBlazliniteBlend() {
 		super(Material.rock);
 
@@ -26,13 +26,13 @@ public class BlockBlazliniteBlend extends Block {
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 2);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	private IIcon blockIconBottom;
 	private IIcon blockIconTop;
-	
-	
+
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister registry) {
@@ -58,7 +58,7 @@ public class BlockBlazliniteBlend extends Block {
 
 		return this.blockIcon;
 	}
-	
+
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
 
@@ -67,18 +67,18 @@ public class BlockBlazliniteBlend extends Block {
 				&& world.getBlock(i, j, k - 1) == NovaCraftBlocks.deepfire
 				&& world.getBlock(i + 1, j, k) == NovaCraftBlocks.deepfire
 				&& world.getBlock(i - 1, j, k) == NovaCraftBlocks.deepfire) {
-				
+
 				world.setBlock(i, j, k, NovaCraftBlocks.blazlinite, 0, 2);
 				world.playSoundEffect((double)(i + 0.5f), (double)(j + 0.5f), (double)(k + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 			}
-			
+
 		}
 	}
-	
+
 	@Override
 	public int tickRate(World world)
 	{
 		return 500;
 	}
-	
+
 }

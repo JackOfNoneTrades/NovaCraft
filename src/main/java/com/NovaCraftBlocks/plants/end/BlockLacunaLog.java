@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -22,9 +22,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockLacunaLog extends Block {
-	
+
 	private IIcon[][] icon;
-	
+
 	public BlockLacunaLog() {
 		super(Material.plants);
 		this.icon = new IIcon[1][6];
@@ -33,7 +33,7 @@ public class BlockLacunaLog extends Block {
 		this.setResistance(2.5F);
 		this.setHarvestLevel("axe", 2);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(final IIconRegister iconRegister) {
@@ -45,7 +45,7 @@ public class BlockLacunaLog extends Block {
             this.icon[0][5] = iconRegister.registerIcon("nova_craft:lacuna_log");
 
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
@@ -74,7 +74,7 @@ public class BlockLacunaLog extends Block {
 		float south = canConnectTo(world, x, y, z+1) ? 1.0F : 0.8125F;
 		setBlockBounds(west, down, north, east, up, south);
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -86,12 +86,12 @@ public class BlockLacunaLog extends Block {
 		float south = canConnectTo(world, x, y, z+1) ? 1.0F : 0.8125F;
 		return AxisAlignedBB.getBoundingBox(x+west, y+down, z+north, x+east, y+up, z+south);
 	}
-	
+
 	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
 		return this.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
-	
+
 	public boolean canConnectTo(IBlockAccess world, int x, int y, int z) {
 		Block block = world.getBlock(x, y, z);
 		return canPlaceOn(block) || block == NovaCraftBlocks.lacuna_fruit;
@@ -129,7 +129,7 @@ public class BlockLacunaLog extends Block {
 		for (EnumFacing enumfacing : EnumFacing.values())
 		{
 			if(enumfacing.getFrontOffsetY() != 0) continue;
-			
+
 			Block block = world.getBlock(x+enumfacing.getFrontOffsetX(), y, z+enumfacing.getFrontOffsetZ());
 
 			if (block == this)
@@ -151,7 +151,7 @@ public class BlockLacunaLog extends Block {
 		Block block2 = world.getBlock(x, y-1, z);
 		return block2 == this || canPlaceOn(block2);
 	}
-	
+
 	public static boolean canPlaceOn(Block block) {
 		return block == Blocks.end_stone || block == NovaCraftBlocks.frontierslate;
 	}
@@ -175,7 +175,7 @@ public class BlockLacunaLog extends Block {
 	public int getRenderType() {
 		return RenderIDs.ENDIUM_PLANT;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

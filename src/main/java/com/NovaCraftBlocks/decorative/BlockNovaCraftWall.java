@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.decorative;
+package com.nova_craftBlocks.decorative;
 
 import java.util.List;
 

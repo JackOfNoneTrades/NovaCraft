@@ -1,7 +1,7 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -35,7 +35,7 @@ public class BlockNullcubeSlime extends Block {
 		float f = 0.125F;
 		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - f, z + 1);
 	}
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		//Copartz
@@ -63,7 +63,7 @@ public class BlockNullcubeSlime extends Block {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX + 5.0D, entity.posY, entity.posZ);
 			entity.setPosition(positionVector.xCoord, positionVector.yCoord, positionVector.zCoord);
 		}
-		
+
 		//Tsavorokite
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlock(x, y - 1, z) == NovaCraftBlocks.tsavorokite_block) {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX, entity.posY + 8.0D, entity.posZ);
@@ -89,7 +89,7 @@ public class BlockNullcubeSlime extends Block {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX + 8.0D, entity.posY, entity.posZ);
 			entity.setPosition(positionVector.xCoord, positionVector.yCoord, positionVector.zCoord);
 		}
-		
+
 		//Larimar
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlock(x, y - 1, z) == NovaCraftBlocks.larimar_block) {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX, entity.posY + 12.0D, entity.posZ);
@@ -115,7 +115,7 @@ public class BlockNullcubeSlime extends Block {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX + 12.0D, entity.posY, entity.posZ);
 			entity.setPosition(positionVector.xCoord, positionVector.yCoord, positionVector.zCoord);
 		}
-		
+
 		//Yttrlinsite
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlock(x, y - 1, z) == NovaCraftBlocks.yttrlinsite_block) {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX, entity.posY + 16.0D, entity.posZ);
@@ -141,7 +141,7 @@ public class BlockNullcubeSlime extends Block {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX + 16.0D, entity.posY, entity.posZ);
 			entity.setPosition(positionVector.xCoord, positionVector.yCoord, positionVector.zCoord);
 		}
-		
+
 		//Null
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlock(x, y - 1, z) == NovaCraftBlocks.null_block) {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX, entity.posY + 64.0D, entity.posZ);
@@ -167,7 +167,7 @@ public class BlockNullcubeSlime extends Block {
 			Vec3 positionVector = Vec3.createVectorHelper(entity.posX + 64.0D, entity.posY, entity.posZ);
 			entity.setPosition(positionVector.xCoord, positionVector.yCoord, positionVector.zCoord);
 		}
-		
+
 	}
 
 	@Override

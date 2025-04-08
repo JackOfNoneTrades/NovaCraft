@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.TileEntity.TileEntityDeepOneEgg;
-import com.NovaCraft.particles.ParticleHandler;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.TileEntity.TileEntityDeepOneEgg;
+import com.nova_craft.particles.ParticleHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -35,32 +35,32 @@ public class BlockDeepOneEgg extends BlockContainer
     public int quantityDropped(final Random par1Random) {
         return 1;
     }
-    
+
     @SideOnly(Side.CLIENT)
     public boolean isOpaqueCube() {
         return false;
     }
-    
+
     public boolean renderAsNormalBlock() {
         return false;
     }
-    
+
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(final IBlockAccess par1IBlockAccess, final int par2, final int par3, final int par4, final int par5) {
         return true;
     }
-    
+
     public int getRenderType() {
         return NovaCraft.proxy.getBlockRender((Block)this);
     }
-    
+
     public void onNeighborBlockChange(final World w, final int x, final int y, final int z, final int par5) {
     }
-    
+
     public void breakBlock(final World par1World, final int par2, final int par3, final int par4, final Block par5, final int par6) {
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
     }
-    
+
     public TileEntity createNewTileEntity(final World par1World, final int par1) {
         return new TileEntityDeepOneEgg();
     }
@@ -73,7 +73,7 @@ public class BlockDeepOneEgg extends BlockContainer
     {
         return Item.getItemById(0);
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

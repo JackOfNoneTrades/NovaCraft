@@ -1,15 +1,15 @@
-package com.NovaCraftBlocks.crystals;
+package com.nova_craftBlocks.crystals;
 
 import java.util.List;
 import java.util.Random;
 
-import com.NovaCraft.Item.Block.ItemNullCluster;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.core.Utils;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
+import com.nova_craft.Item.Block.ItemNullCluster;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.core.Utils;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks.ISubBlocksBlock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,7 +33,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
-	
+
 	private final int type;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
@@ -48,16 +48,16 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 		this.lightValue = 1;
 		this.type = type;
 	}
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(20, 100, 1));
 
-		}	
+		}
 	}
-	
+
     public int getLightValue(IBlockAccess world, int x, int y, int z)
     {
     	int meta = world.getBlockMetadata(x, y, z);
@@ -68,7 +68,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
    {
         return NovaCraftItems.null_shard;
     }
-    
+
     protected ItemStack createStackedBlock(int p_149644_1_)
     {
         int j = 0;
@@ -81,7 +81,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 
         return new ItemStack(item, 1, j);
     }
-	
+
     protected boolean canSilkHarvest()
     {
     	return true;
@@ -91,7 +91,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
     {
         return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
     }
-    
+
     public int quantityDropped(int meta, int fortune, Random random)
     {
     	if(this == NovaCraftBlocks.null_cluster_2 && meta >= 6) {
@@ -111,7 +111,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
     	}
     	return 2;
     }
-    
+
     private boolean harvestingWithPickaxe() {
     	return harvesters.get() != null && harvesters.get().getCurrentEquippedItem() != null && harvesters.get().getCurrentEquippedItem().getItem().getToolClasses(harvesters.get().getCurrentEquippedItem()).contains("pickaxe");
     }
@@ -120,7 +120,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
 		return side + meta;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -196,26 +196,26 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
         super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
         this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
     }
-    
+
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		return this.canPlaceBlockOnSide(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
-	
+
 	@Override
     public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
     {
 		EnumFacing facing = EnumFacing.getFront(side);
 		return world.getBlock(x - facing.getFrontOffsetX(), y - facing.getFrontOffsetY(), z - facing.getFrontOffsetZ()).isOpaqueCube();
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_)
 	{
 		return this.icons[p_149691_2_ < 6 ? 0 : 1];
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_)
@@ -231,7 +231,7 @@ public class BlockNullCluster extends BlockNull implements ISubBlocksBlock {
 		}
 		super.registerBlockIcons(p_149651_1_);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
 	{

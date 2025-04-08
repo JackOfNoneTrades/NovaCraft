@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.registry.OtherModBlocks;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -29,7 +29,7 @@ public class BlockNovaCraftMushroom extends BlockMushroom {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockNovaCraftMushroom() {
 		super();
 		this.setHardness(0.1F);
@@ -38,12 +38,12 @@ public class BlockNovaCraftMushroom extends BlockMushroom {
 		this.setHarvestLevel("pickaxe", 2);
 		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.3F, 0.7F);
 	}
-	
+
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
 	  {
 	       return (p_149854_1_ == Blocks.stone || p_149854_1_ == OtherModBlocks.deepslate || p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone);
 	  }
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -53,11 +53,11 @@ public class BlockNovaCraftMushroom extends BlockMushroom {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
 		return null;
 	}

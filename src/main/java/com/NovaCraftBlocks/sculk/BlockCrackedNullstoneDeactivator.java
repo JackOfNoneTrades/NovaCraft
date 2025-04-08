@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -26,14 +26,14 @@ public class BlockCrackedNullstoneDeactivator extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockCrackedNullstoneDeactivator() {
 		super(Material.rock);
 		this.setBlockUnbreakable();
 		this.setResistance(10000000);
 		this.setStepSound(ModSounds.soundNullstoneBricks);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -47,9 +47,9 @@ public class BlockCrackedNullstoneDeactivator extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:cracked_nullstone_deactivator");
 		iconTop = iconRegister.registerIcon("nova_craft:cracked_nullstone_deactivator");
 	}
-	
+
 	public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
-		
+
 		if (world.isRemote) {
 	          return true;
 	      }
@@ -58,7 +58,7 @@ public class BlockCrackedNullstoneDeactivator extends Block {
 	      if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.dimensional_sealent) {
 	    	  par5EntityPlayer.addChatComponentMessage(new ChatComponentText(I18n.format("tooltip.nullstone_deactivator.desc")));
 	      }
-		
+
 		return true;
 	}
 

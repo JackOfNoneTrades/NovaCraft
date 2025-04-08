@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.special;
+package com.nova_craftBlocks.special;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
@@ -10,7 +10,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
-import com.NovaCraft.renderer.OpenGLHelper;
+import com.nova_craft.renderer.OpenGLHelper;
 
 //Credit goes to Thaumcraft and Et Futurum Requiem I think
 public abstract class BlockModelBase implements ISimpleBlockRenderingHandler {

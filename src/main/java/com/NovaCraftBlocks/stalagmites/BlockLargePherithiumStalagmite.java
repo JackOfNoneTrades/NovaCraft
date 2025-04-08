@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.stalagmites;
+package com.nova_craftBlocks.stalagmites;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -25,7 +25,7 @@ public class BlockLargePherithiumStalagmite extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockLargePherithiumStalagmite() {
 		super(Material.rock);
 		this.setHardness(3);
@@ -33,12 +33,12 @@ public class BlockLargePherithiumStalagmite extends Block {
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 2);
 	}
-	
+
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
 	  {
 	       return p_149854_1_ == Blocks.stone;
 	  }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -52,7 +52,7 @@ public class BlockLargePherithiumStalagmite extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:pherithium_stalagmite_large");
 		iconTop = iconRegister.registerIcon("nova_craft:pherithium_stalagmite_large");
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -62,19 +62,19 @@ public class BlockLargePherithiumStalagmite extends Block {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	public int quantityDropped(final Random random) {
         return 2 + random.nextInt(6);
     }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.pherithium_scraps;
     }
-	
+
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
@@ -89,16 +89,16 @@ public class BlockLargePherithiumStalagmite extends Block {
 			return this.quantityDropped(random);
 		}
 	}
-	
+
 	@Override
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {
 		Random random = new Random();
 
 		if (this.getItemDropped(p_149690_5_, random, p_149690_7_) != Item.getItemFromBlock(this)) {
-			int amount = 0;	
-			
+			int amount = 0;
+
 				amount = MathHelper.getRandomIntegerInRange(random, 3, 5);
-			
+
 
 			return amount;
 		}

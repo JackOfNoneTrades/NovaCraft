@@ -1,8 +1,8 @@
-package com.NovaCraftBlocks.crystals;
+package com.nova_craftBlocks.crystals;
 
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraft.sounds.Reference;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craft.sounds.Reference;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BlockVariegatedShard extends Block {
-	
+
 	public BlockVariegatedShard() {
 		this(Material.glass);
 	}

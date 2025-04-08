@@ -1,13 +1,13 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.entity.EntityNulk;
-import com.NovaCraft.entity.EntityNuxx;
-import com.NovaCraft.entity.EntityPrisoner;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.entity.EntityNulk;
+import com.nova_craft.entity.EntityNuxx;
+import com.nova_craft.entity.EntityPrisoner;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class BlockUnknownPortal extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockUnknownPortal() {
 		super(Material.rock);
 		this.setBlockUnbreakable();
@@ -37,7 +37,7 @@ public class BlockUnknownPortal extends Block {
 		this.setBlockBounds(0.3F, 0.0F, 0.0F, 0.7F, 1.0F, 1.0F);
 		this.setTickRandomly(true);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -51,7 +51,7 @@ public class BlockUnknownPortal extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:unknown_portal");
 		iconTop = iconRegister.registerIcon("nova_craft:unknown_portal");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
@@ -90,18 +90,18 @@ public class BlockUnknownPortal extends Block {
 	        }
 		}
 	}
-	
+
 	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
     {
 		if (!(p_149670_5_ instanceof EntityPrisoner)) {
 			p_149670_5_.attackEntityFrom(DamageSource.outOfWorld, 2.0F);
 		}
     }
-	
+
 	public boolean isOpaqueCube() {
         return false;
     }
-    
+
     public boolean renderAsNormalBlock() {
         return false;
     }

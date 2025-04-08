@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.ores.vanilla;
+package com.nova_craftBlocks.ores.vanilla;
 
 import java.util.Random;
 
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 public class BlockGrimstoneRedstone extends Block
 {
     private boolean field_150187_a;
-    private static final String __OBFID = "CL_00000294";
+    //private static final String __OBFID = "CL_00000294";
 
     public BlockGrimstoneRedstone(boolean p_i45420_1_)
     {

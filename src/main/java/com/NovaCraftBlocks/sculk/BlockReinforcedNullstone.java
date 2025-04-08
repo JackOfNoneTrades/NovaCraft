@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.TileEntity.TileEntityAncientChest;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.TileEntity.TileEntityAncientChest;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -30,14 +30,14 @@ public class BlockReinforcedNullstone extends Block {
 	private IIcon iconTop;
 	private IIcon blockIconBottom;
 	private IIcon blockIconTop;
-	
+
 	public BlockReinforcedNullstone() {
 		super(Material.rock);
 		this.setBlockUnbreakable();
 		this.setResistance(10000000);
 		this.setStepSound(ModSounds.soundNullstoneBricks);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister registry) {
@@ -63,7 +63,7 @@ public class BlockReinforcedNullstone extends Block {
 
 		return this.blockIcon;
 	}
-	
+
 	public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
 	      if (world.isRemote) {
 	          return true;

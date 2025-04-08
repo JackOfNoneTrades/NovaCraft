@@ -1,17 +1,17 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import java.util.List;
 import java.util.Random;
 
-import com.NovaCraft.Item.Block.ItemVaniteCluster;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.core.Utils;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
+import com.nova_craft.Item.Block.ItemVaniteCluster;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.achievements.AchievementsNovaCraft;
+import com.nova_craft.core.Utils;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks.ISubBlocksBlock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -42,7 +42,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
-	
+
 	private final int type;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
@@ -56,15 +56,15 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 		this.type = type;
 		setTickRandomly(true);
 	}
-   
+
    public int quantityDropped(final Random random) {
        return 4 + random.nextInt(5);
    }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
        return NovaCraftItems.vanite_crystal;
    }
-	
+
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
@@ -79,11 +79,11 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 			return this.quantityDropped(random);
 		}
 	}
-	
+
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int l) {
 		if (world.getBlock(x, y - 1, z) == NovaCraftBlocks.cracked_vanite_crystal_cauldron) {
 			world.setBlock(x, y - 1, z, Blocks.air);
-			
+
 			int rand = (int)(1 + Math.random() * 3);
 			if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.vanite_ingot, 2 + rand));
@@ -93,7 +93,7 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 		}
 
 	}
-    
+
     protected ItemStack createStackedBlock(int p_149644_1_)
     {
         int j = 0;
@@ -106,7 +106,7 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 
         return new ItemStack(item, 1, j);
     }
-	
+
     protected boolean canSilkHarvest()
     {
     	return true;
@@ -116,7 +116,7 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
     {
         return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
     }
-   
+
     private boolean harvestingWithPickaxe() {
     	return harvesters.get() != null && harvesters.get().getCurrentEquippedItem() != null && harvesters.get().getCurrentEquippedItem().getItem().getToolClasses(harvesters.get().getCurrentEquippedItem()).contains("pickaxe");
     }
@@ -125,7 +125,7 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
 		return side + meta;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -201,19 +201,19 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
         super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
         this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
     }
-    
+
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		return this.canPlaceBlockOnSide(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
-	
+
 	@Override
     public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
     {
 		EnumFacing facing = EnumFacing.getFront(side);
 		return world.getBlock(x - facing.getFrontOffsetX(), y - facing.getFrontOffsetY(), z - facing.getFrontOffsetZ()).isOpaqueCube();
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta)
@@ -221,10 +221,10 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 		if (meta < 0 || meta >= this.icons.length) {
             meta = 1;
         }
-		
+
 		return this.icons[meta < 6 ? 0 : 1];
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_)
@@ -235,7 +235,7 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 		}
 		super.registerBlockIcons(p_149651_1_);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
 	{
@@ -262,13 +262,13 @@ public class BlockVaniteCluster extends Block implements ISubBlocksBlock {
 	public Class<? extends ItemBlock> getItemBlockClass() {
 		return ItemVaniteCluster.class;
 	}
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.attackEntityFrom(DamageSource.generic, 2.0F);
-		
+
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {

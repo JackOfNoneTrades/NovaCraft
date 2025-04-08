@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,7 +22,7 @@ public class BlockFrontierslate extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockFrontierslate() {
 		super(Material.rock);
 		this.setHardness(8);
@@ -30,7 +30,7 @@ public class BlockFrontierslate extends Block {
 		this.setStepSound(ModSounds.soundFrontierslate);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -44,5 +44,5 @@ public class BlockFrontierslate extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:frontierslate");
 		iconTop = iconRegister.registerIcon("nova_craft:frontierslate");
 	}
-	
+
 }

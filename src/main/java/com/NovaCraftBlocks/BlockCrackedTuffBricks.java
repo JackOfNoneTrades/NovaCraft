@@ -1,7 +1,7 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,7 +18,7 @@ public class BlockCrackedTuffBricks extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockCrackedTuffBricks() {
 		super(Material.rock);
 		this.setHardness(0.75F);
@@ -26,7 +26,7 @@ public class BlockCrackedTuffBricks extends Block {
 		this.setStepSound(ModSounds.soundSculkBricks);
 		this.setHarvestLevel("pickaxe", 0);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){

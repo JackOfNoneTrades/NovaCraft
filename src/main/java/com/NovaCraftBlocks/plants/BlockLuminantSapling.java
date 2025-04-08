@@ -1,8 +1,8 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.Random;
 
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.sounds.ModSounds;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;

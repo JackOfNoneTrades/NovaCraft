@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.stalagmites;
+package com.nova_craftBlocks.stalagmites;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.BlockNullstone;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.BlockNullstone;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class BlockNullstoneStalagmite extends BlockNullstone {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockNullstoneStalagmite() {
 		super();
 		this.setHardness(0.3F);
@@ -37,7 +37,7 @@ public class BlockNullstoneStalagmite extends BlockNullstone {
 		this.setBlockBounds(0.2F, 0.0F, 0.2F, 0.8F, 0.6F, 0.8F);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -51,7 +51,7 @@ public class BlockNullstoneStalagmite extends BlockNullstone {
 		iconFace = iconRegister.registerIcon("nova_craft:nullstone_stalagmite");
 		iconTop = iconRegister.registerIcon("nova_craft:nullstone_stalagmite");
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -61,22 +61,22 @@ public class BlockNullstoneStalagmite extends BlockNullstone {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	protected boolean canSilkHarvest()
     {
     	return true;
     }
-	
+
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	  {
 	       return null;
 	  }
-	
-	
+
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {

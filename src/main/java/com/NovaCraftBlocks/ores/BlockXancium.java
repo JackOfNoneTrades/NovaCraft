@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.ores;
+package com.nova_craftBlocks.ores;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -27,7 +27,7 @@ public class BlockXancium extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockXancium() {
 		super(Material.rock);
 		this.setHardness(6);
@@ -35,7 +35,7 @@ public class BlockXancium extends Block {
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -49,9 +49,9 @@ public class BlockXancium extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:xancium_block");
 		iconTop = iconRegister.registerIcon("nova_craft:xancium_block");
 	}
-	
+
   public void onNeighborBlockChange(World world, int x, int y, int z, Block l) {
-		
+
 		if (world.isBlockIndirectlyGettingPowered(x, y, z))
         {
             this.onBlockDestroyedByPlayer(world, x, y, z, 1);
@@ -59,7 +59,7 @@ public class BlockXancium extends Block {
             world.setBlockToAir(x, y, z);
         }
 	}
-	
+
 	/**
      * Called whenever the block is added into the world. Args: world, x, y, z
      */
@@ -73,12 +73,12 @@ public class BlockXancium extends Block {
             world.setBlockToAir(x, y, z);
         }
     }
-    
+
     public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
         return World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) || p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_) == Blocks.glowstone;
     }
-    
+
     public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion p_149723_5_)
     {
         if (!world.isRemote)
@@ -86,12 +86,12 @@ public class BlockXancium extends Block {
         	world.createExplosion((Entity) null, x, y, z, 4.5F, true);
         }
     }
-	
+
 	public boolean canDropFromExplosion(Explosion p_149659_1_)
     {
         return false;
     }
-	
+
 
 }
 

@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,15 +41,15 @@ public class BlockEnderBloom extends BlockBush implements IShearable {
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	@Override
 	public Item getItemDropped(int meta, Random random, int fortune) {
 		return null;
 	}
-	
+
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
@@ -61,7 +61,7 @@ public class BlockEnderBloom extends BlockBush implements IShearable {
 	            ret.add(new ItemStack(NovaCraftBlocks.ender_sprout));
 	        return ret;
 	}
-	
+
 	@Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -72,8 +72,8 @@ public class BlockEnderBloom extends BlockBush implements IShearable {
             ParticleHandler.ENDER.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.ENDER.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.ENDER.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        }	
-        
+        }
+
     }
-	
+
 }

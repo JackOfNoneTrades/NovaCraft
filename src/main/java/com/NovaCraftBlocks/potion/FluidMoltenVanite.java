@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import net.minecraftforge.fluids.Fluid;
 

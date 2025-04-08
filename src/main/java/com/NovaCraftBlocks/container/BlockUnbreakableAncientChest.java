@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.container;
+package com.nova_craftBlocks.container;
 
 import net.minecraft.block.material.*;
 import net.minecraft.block.*;
@@ -15,15 +15,15 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import java.util.*;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.TileEntity.TileEntityAncientChest;
-import com.NovaCraft.TileEntity.TileEntityUnbreakbleAncientChest;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.registry.OtherModItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.TileEntity.TileEntityAncientChest;
+import com.nova_craft.TileEntity.TileEntityUnbreakbleAncientChest;
+import com.nova_craft.achievements.AchievementsNovaCraft;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.registry.OtherModBlocks;
+import com.nova_craft.registry.OtherModItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.inventory.*;
 import net.minecraft.client.renderer.texture.*;
@@ -36,7 +36,7 @@ import cpw.mods.fml.relauncher.*;
 public class BlockUnbreakableAncientChest extends BlockContainer
 {
   private final Random random;
-	
+
   public BlockUnbreakableAncientChest(final int par2) {
       super(Material.rock);
       this.random = new Random();
@@ -46,29 +46,29 @@ public class BlockUnbreakableAncientChest extends BlockContainer
       this.setCreativeTab(null);
       this.setBlockBounds(0.0625f, 0.0f, 0.0625f, 0.9375f, 0.875f, 0.9375f);
   }
-  
+
   public Block setIconName(final String name) {
       this.textureName = "nova_craft:" + name;
       return this.setBlockName("nova_craft:" + name);
   }
-  
+
   public boolean isOpaqueCube() {
       return false;
   }
-  
+
   public boolean renderAsNormalBlock() {
       return false;
   }
-  
+
   @Override
   public int quantityDropped(Random random) {
 	return 0;
   }
-  
+
   public int getRenderType() {
       return NovaCraftBlocks.UnbreakableAncientChestRenderId;
   }
-  
+
   public void onBlockAdded(final World par1World, final int par2, final int par3, final int par4) {
       super.onBlockAdded(par1World, par2, par3, par4);
       this.unifyAdjacentChests(par1World, par2, par3, par4);
@@ -89,7 +89,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
           this.unifyAdjacentChests(par1World, par2 + 1, par3, par4);
       }
   }
-  
+
   public void onBlockPlacedBy(final World par1World, final int par2, final int par3, final int par4, final EntityLivingBase par5EntityLivingBase, final ItemStack par6ItemStack) {
       final Block l = par1World.getBlock(par2, par3, par4 - 1);
       final Block i1 = par1World.getBlock(par2, par3, par4 + 1);
@@ -136,7 +136,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
           ((TileEntityAncientChest)par1World.getTileEntity(par2, par3, par4)).setChestGuiName(par6ItemStack.getDisplayName());
       }
   }
-  
+
   public void unifyAdjacentChests(final World par1World, final int par2, final int par3, final int par4) {
       if (!par1World.isRemote) {
           final Block l = par1World.getBlock(par2, par3, par4 - 1);
@@ -206,7 +206,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
           par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
       }
   }
-  
+
   public boolean canPlaceBlockAt(final World par1World, final int par2, final int par3, final int par4) {
       int l = 0;
       if (par1World.getBlock(par2 - 1, par3, par4) == this) {
@@ -223,11 +223,11 @@ public class BlockUnbreakableAncientChest extends BlockContainer
       }
       return l <= 1 && !this.isThereANeighborChest(par1World, par2 - 1, par3, par4) && !this.isThereANeighborChest(par1World, par2 + 1, par3, par4) && !this.isThereANeighborChest(par1World, par2, par3, par4 - 1) && !this.isThereANeighborChest(par1World, par2, par3, par4 + 1);
   }
-  
+
   private boolean isThereANeighborChest(final World par1World, final int par2, final int par3, final int par4) {
       return par1World.getBlock(par2, par3, par4) == this && (par1World.getBlock(par2 - 1, par3, par4) == this || par1World.getBlock(par2 + 1, par3, par4) == this || par1World.getBlock(par2, par3, par4 - 1) == this || par1World.getBlock(par2, par3, par4 + 1) == this);
   }
-  
+
   public void onNeighborBlockChange(final World par1World, final int par2, final int par3, final int par4, final Block par5) {
       super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
       final TileEntityAncientChest TileEntityAncientChest = (TileEntityAncientChest)par1World.getTileEntity(par2, par3, par4);
@@ -235,7 +235,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
           TileEntityAncientChest.updateContainingBlockInfo();
       }
   }
-  
+
   public void setBlockBoundsBasedOnState(final IBlockAccess par1IBlockAccess, final int par2, final int par3, final int par4) {
       if (par1IBlockAccess.getBlock(par2, par3, par4 - 1) == this) {
           this.setBlockBounds(0.0625f, 0.0f, 0.0f, 0.9375f, 0.875f, 0.9375f);
@@ -253,7 +253,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
           this.setBlockBounds(0.0625f, 0.0f, 0.0625f, 0.9375f, 0.875f, 0.9375f);
       }
   }
-  
+
   public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
       if (world.isRemote) {
           return true;
@@ -266,7 +266,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
     	  world.setBlock(x, y, z, NovaCraftBlocks.ancient_chest, meta, 2);
     	  par5EntityPlayer.triggerAchievement(AchievementsNovaCraft.ancient_loot);
     	  TileEntityAncientChest chest = (TileEntityAncientChest) world.getTileEntity(x, y, z);
-    	  
+
   		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
   			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getSpecialLoot(random));
   			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getSpecialLoot(random));
@@ -277,17 +277,17 @@ public class BlockUnbreakableAncientChest extends BlockContainer
       }
       return true;
   }
-  
+
   public TileEntity createNewTileEntity(final World par1World, final int i) {
       final TileEntityUnbreakbleAncientChest TileEntityAncientChest = new TileEntityUnbreakbleAncientChest();
       return TileEntityAncientChest;
   }
-  
+
   @SideOnly(Side.CLIENT)
   public void registerBlockIcons(final IIconRegister iconRegister) {
       this.blockIcon = iconRegister.registerIcon("nova_craft:nullstone");
   }
-  
+
   private ItemStack getSpecialLoot(Random random) {
 		int item = random.nextInt(32);
 		switch (item) {
@@ -303,67 +303,67 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 				return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(15) + 5);
 			case 5:
 				return new ItemStack(NovaCraftItems.yttrlinsite_shard,  random.nextInt(15) + 5);
-			case 6: 
+			case 6:
 				return new ItemStack(Items.skull, 1, 1);
-			case 7: 
+			case 7:
 				Enchantment enchantment = Enchantment.enchantmentsBookList[random.nextInt(Enchantment.enchantmentsBookList.length)];
-		        		        
+
 				int minLevel = enchantment.getMinLevel();
 		        int maxLevel = enchantment.getMaxLevel();
 		        int level = MathHelper.getRandomIntegerInRange(random, minLevel, maxLevel);
 		        ItemStack itemStack = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment, maxLevel));
-              
+
               return itemStack;
-			case 8: 
+			case 8:
 				Enchantment enchantment2 = Enchantment.enchantmentsBookList[random.nextInt(Enchantment.enchantmentsBookList.length)];
-		        
+
 		        int minLevel2 = enchantment2.getMinLevel();
 		        int maxLevel2 = enchantment2.getMaxLevel();
-		        int level2 = MathHelper.getRandomIntegerInRange(random, minLevel2, maxLevel2);		       
+		        int level2 = MathHelper.getRandomIntegerInRange(random, minLevel2, maxLevel2);
 		        ItemStack itemStack2 = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment2, maxLevel2));
-              
+
               return itemStack2;
-              
-			case 9: 
+
+			case 9:
 				return new ItemStack(Items.diamond, random.nextInt(3) + 2);
-			case 10: 
+			case 10:
 				return new ItemStack(NovaCraftItems.primeval_mace, 1);
-			case 11: 
+			case 11:
 				return new ItemStack(Items.experience_bottle, random.nextInt(12) + 5);
 			case 12:
 				//Helmet enchants
 			    Enchantment[] helmetEnchantments = {Enchantment.protection, Enchantment.projectileProtection, Enchantment.unbreaking, Enchantment.respiration};
 			    Enchantment[] helmetEnchantments2 = {Enchantment.aquaAffinity, Enchantment.fireProtection, Enchantment.blastProtection};
 			    Enchantment enchantment3 = helmetEnchantments[random.nextInt(helmetEnchantments.length)];
-			    Enchantment enchantment33 = helmetEnchantments2[random.nextInt(helmetEnchantments2.length)];	
-			    int maxLevel3 = enchantment3.getMaxLevel() + 1 + random.nextInt(1);			
-			    int maxLevel33 = enchantment33.getMaxLevel() + 1 + random.nextInt(1);	
+			    Enchantment enchantment33 = helmetEnchantments2[random.nextInt(helmetEnchantments2.length)];
+			    int maxLevel3 = enchantment3.getMaxLevel() + 1 + random.nextInt(1);
+			    int maxLevel33 = enchantment33.getMaxLevel() + 1 + random.nextInt(1);
 			    ItemStack itemStack3 = new ItemStack(NovaCraftItems.tophinite_helmet);
-			    
+
 			    itemStack3.addEnchantment(enchantment3, maxLevel3);
 			    itemStack3.addEnchantment(enchantment33, maxLevel33);
-			    
+
 			    return itemStack3;
 			case 13:
 				//Chestplate enchants
 			    Enchantment[] chestplateEnchantments = {Enchantment.protection, Enchantment.blastProtection};
 			    Enchantment[] chestplateEnchantments2 = {Enchantment.unbreaking, Enchantment.fireProtection, Enchantment.projectileProtection};
-			    
+
 			    //Selects a random enchantment
-			    Enchantment enchantment4 = chestplateEnchantments[random.nextInt(chestplateEnchantments.length)];		    
-			    int maxLevel4 = enchantment4.getMaxLevel() + 1 + random.nextInt(1);		    
-			    
-			    Enchantment enchantment44 = chestplateEnchantments2[random.nextInt(chestplateEnchantments2.length)];		    
+			    Enchantment enchantment4 = chestplateEnchantments[random.nextInt(chestplateEnchantments.length)];
+			    int maxLevel4 = enchantment4.getMaxLevel() + 1 + random.nextInt(1);
+
+			    Enchantment enchantment44 = chestplateEnchantments2[random.nextInt(chestplateEnchantments2.length)];
 			    int maxLevel44 = enchantment44.getMaxLevel() + 1 + random.nextInt(1);
-			    
+
 			    //Creates an ItemStack for diamond chestplate
 			    ItemStack itemStack4 = new ItemStack(NovaCraftItems.tophinite_chestplate);
-			    
+
 			    //Adds the enchantment
 			    itemStack4.addEnchantment(enchantment4, maxLevel4);
 			    itemStack4.addEnchantment(enchantment44, maxLevel44);
-			    
-			    return itemStack4;			
+
+			    return itemStack4;
 			case 14:
 				//Legging enchants
 			    Enchantment[] leggingsEnchantments = {Enchantment.protection, Enchantment.fireProtection};
@@ -373,10 +373,10 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 			    int maxLevel5 = enchantment5.getMaxLevel() + 1 + random.nextInt(1);
 			    int maxLevel55 = enchantment55.getMaxLevel() + 1 + random.nextInt(1);
 			    ItemStack itemStack5 = new ItemStack(NovaCraftItems.tophinite_leggings);
-			    
+
 			    itemStack5.addEnchantment(enchantment5, maxLevel5);
 			    itemStack5.addEnchantment(enchantment55, maxLevel55);
-			    
+
 			    return itemStack5;
 			case 15:
 				//Boot enchants
@@ -387,61 +387,61 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 			    int maxLevel6 = enchantment6.getMaxLevel() + 1 + random.nextInt(1);
 			    int maxLevel66 = enchantment66.getMaxLevel() + 1 + random.nextInt(1);
 			    ItemStack itemStack6 = new ItemStack(NovaCraftItems.tophinite_boots);
-			    
+
 			    itemStack6.addEnchantment(enchantment6, maxLevel6);
 			    itemStack6.addEnchantment(enchantment66, maxLevel66);
-			    
+
 			    return itemStack6;
-			case 16: 
+			case 16:
 				return new ItemStack(Blocks.iron_block, random.nextInt(18) + 8);
-			case 17: 
+			case 17:
 				return new ItemStack(Blocks.gold_block, random.nextInt(13) + 11);
-			case 18: 
+			case 18:
 				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(30) + 18);
-			case 19: 
+			case 19:
 				return new ItemStack(Items.golden_apple, 1, 1);
-			case 20: 
+			case 20:
 				return new ItemStack(Blocks.iron_block, random.nextInt(18) + 25);
-			case 21: 
+			case 21:
 				return new ItemStack(NovaCraftItems.primeval_mace, 1);
-			case 22: 
+			case 22:
 				return new ItemStack(NovaCraftItems.raw_klangite, random.nextInt(4) + 2);
-			case 23: 
-				return new ItemStack(NovaCraftItems.sculked_shard, random.nextInt(5) + 1);				
+			case 23:
+				return new ItemStack(NovaCraftItems.sculked_shard, random.nextInt(5) + 1);
 			case 24:
 				//Helmet enchants
 			    Enchantment[] helmetEnchantmentsB = {Enchantment.protection, Enchantment.projectileProtection, Enchantment.unbreaking, Enchantment.respiration};
 			    Enchantment[] helmetEnchantments2B = {Enchantment.aquaAffinity, Enchantment.fireProtection, Enchantment.blastProtection};
 			    Enchantment enchantment31 = helmetEnchantmentsB[random.nextInt(helmetEnchantmentsB.length)];
-			    Enchantment enchantment331 = helmetEnchantments2B[random.nextInt(helmetEnchantments2B.length)];	
-			    int maxLevel31 = enchantment31.getMaxLevel() + 1 + random.nextInt(1);			
-			    int maxLevel331 = enchantment331.getMaxLevel() + 1 + random.nextInt(1);	
+			    Enchantment enchantment331 = helmetEnchantments2B[random.nextInt(helmetEnchantments2B.length)];
+			    int maxLevel31 = enchantment31.getMaxLevel() + 1 + random.nextInt(1);
+			    int maxLevel331 = enchantment331.getMaxLevel() + 1 + random.nextInt(1);
 			    ItemStack itemStack31 = new ItemStack(NovaCraftItems.klangite_helmet);
-			    
+
 			    itemStack31.addEnchantment(enchantment31, maxLevel31);
 			    itemStack31.addEnchantment(enchantment331, maxLevel331);
-			    
+
 			    return itemStack31;
 			case 25:
 				//Chestplate enchants
 			    Enchantment[] chestplateEnchantmentsB = {Enchantment.protection, Enchantment.blastProtection};
 			    Enchantment[] chestplateEnchantments2B = {Enchantment.unbreaking, Enchantment.fireProtection, Enchantment.projectileProtection};
-			    
+
 			    //Selects a random enchantment
-			    Enchantment enchantment4B = chestplateEnchantmentsB[random.nextInt(chestplateEnchantmentsB.length)];		    
-			    int maxLevel4B = enchantment4B.getMaxLevel() + 1 + random.nextInt(1);		    
-			    
-			    Enchantment enchantment44B = chestplateEnchantments2B[random.nextInt(chestplateEnchantments2B.length)];		    
+			    Enchantment enchantment4B = chestplateEnchantmentsB[random.nextInt(chestplateEnchantmentsB.length)];
+			    int maxLevel4B = enchantment4B.getMaxLevel() + 1 + random.nextInt(1);
+
+			    Enchantment enchantment44B = chestplateEnchantments2B[random.nextInt(chestplateEnchantments2B.length)];
 			    int maxLevel44B = enchantment44B.getMaxLevel() + 1 + random.nextInt(1);
-			    
+
 			    //Creates an ItemStack for diamond chestplate
 			    ItemStack itemStack4B = new ItemStack(NovaCraftItems.klangite_chestplate);
-			    
+
 			    //Adds the enchantment
 			    itemStack4B.addEnchantment(enchantment4B, maxLevel4B);
 			    itemStack4B.addEnchantment(enchantment44B, maxLevel44B);
-			    
-			    return itemStack4B;			
+
+			    return itemStack4B;
 			case 26:
 				//Legging enchants
 			    Enchantment[] leggingsEnchantmentsB = {Enchantment.protection, Enchantment.fireProtection};
@@ -451,10 +451,10 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 			    int maxLevel5B = enchantment5B.getMaxLevel() + 1 + random.nextInt(1);
 			    int maxLevel55B = enchantment55B.getMaxLevel() + 1 + random.nextInt(1);
 			    ItemStack itemStack5B = new ItemStack(NovaCraftItems.klangite_leggings);
-			    
+
 			    itemStack5B.addEnchantment(enchantment5B, maxLevel5B);
 			    itemStack5B.addEnchantment(enchantment55B, maxLevel55B);
-			    
+
 			    return itemStack5B;
 			case 27:
 				//Boot enchants
@@ -465,18 +465,18 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 			    int maxLevel6B = enchantment6B.getMaxLevel() + 1 + random.nextInt(1);
 			    int maxLevel66B = enchantment66B.getMaxLevel() + 1 + random.nextInt(1);
 			    ItemStack itemStack6B = new ItemStack(NovaCraftItems.klangite_boots);
-			    
+
 			    itemStack6B.addEnchantment(enchantment6B, maxLevel6B);
 			    itemStack6B.addEnchantment(enchantment66B, maxLevel66B);
-			    
+
 			    return itemStack6B;
-			case 28: 
+			case 28:
 				return new ItemStack(NovaCraftItems.dark_essence, random.nextInt(5) + 1);
-			case 29: 
+			case 29:
 				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
-			case 30: 
+			case 30:
 				return new ItemStack(NovaCraftItems.ancient_leggings, 1);
-			    				
+
 			default: {
 				return new ItemStack(NovaCraftItems.blazing_coal, random.nextInt(26) + 12);
 			}

@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants.nether;
+package com.nova_craftBlocks.plants.nether;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,28 +41,28 @@ public class BlockFlamingPitcherTop extends BlockBush {
 		Block soil = world.getBlock(x, y - 1, z);
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
-	
+
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int l) {
 		world.setBlock(x, y - 1, z, Blocks.air);
 	}
-	
+
 	public int quantityDropped(final Random random) {
         return 1 + random.nextInt(3);
     }
-	
+
 	@Override
 	public Item getItemDropped(int meta, Random random, int fortune) {
 		return NovaCraftItems.flaming_pitcher_petal;
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 6;
 	  }
-	
+
 	protected boolean canSilkHarvest() {
         return false;
     }
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {
@@ -75,5 +75,5 @@ public class BlockFlamingPitcherTop extends BlockBush {
 
         }
     }
-	
+
 }

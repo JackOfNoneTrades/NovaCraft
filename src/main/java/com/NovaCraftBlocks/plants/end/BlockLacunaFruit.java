@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.Random;
 
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockLacunaFruit extends Block {
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon deadIcon;
 
@@ -115,7 +115,7 @@ public class BlockLacunaFruit extends Block {
 				setFlower(world, x, y, z, 5);
 		}
 	}
-	
+
 	private void setFlower(World world, int x, int y, int z, int age) {
 		world.setBlock(x, y, z, this, age, 3);
 	}
@@ -125,7 +125,7 @@ public class BlockLacunaFruit extends Block {
 		if (!canBlockStay(world, x, y, z))
 			world.func_147480_a(x, y, z, false);
 	}
-	
+
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		return canPlantStay(world, x, y, z);
@@ -152,7 +152,7 @@ public class BlockLacunaFruit extends Block {
 
 	public static boolean areAllNeighborsEmpty(World world, int x, int y, int z, ForgeDirection skip) {
 		ForgeDirection[] horizontal = {ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.EAST};
-		
+
 		for (ForgeDirection enumfacing : horizontal)
 		{
 			if (enumfacing != skip && !world.isAirBlock(x + enumfacing.offsetX, y + enumfacing.offsetY, z + enumfacing.offsetZ))
@@ -239,7 +239,7 @@ public class BlockLacunaFruit extends Block {
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
 		return canBlockStay(world, x, y, z);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

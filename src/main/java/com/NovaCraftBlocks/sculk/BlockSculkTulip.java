@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -29,7 +29,7 @@ public class BlockSculkTulip extends BlockMushroom {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockSculkTulip() {
 		super();
 		this.setHardness(3);
@@ -37,7 +37,7 @@ public class BlockSculkTulip extends BlockMushroom {
 		this.setStepSound(ModSounds.soundSculkVein);
 		this.setHarvestLevel("axe", 0);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -51,13 +51,13 @@ public class BlockSculkTulip extends BlockMushroom {
 		iconFace = iconRegister.registerIcon("nova_craft:sculk_tulip");
 		iconTop = iconRegister.registerIcon("nova_craft:sculk_tulip");
 	}
-	
+
 	/**
      * is the block grass, dirt or farmland
      */
     protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
-        return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_block || 
+        return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_block ||
         		p_149854_1_ == NovaCraftBlocks.sculk_deepslate || p_149854_1_ == NovaCraftBlocks.sculk_grimstone || p_149854_1_ == NovaCraftBlocks.sculk_stone);
     }
 
@@ -68,7 +68,7 @@ public class BlockSculkTulip extends BlockMushroom {
     {
         return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
     }
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -78,20 +78,20 @@ public class BlockSculkTulip extends BlockMushroom {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
+
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 	   return true;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	public int quantityDropped(final Random random) {
         return 1;
     }
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {

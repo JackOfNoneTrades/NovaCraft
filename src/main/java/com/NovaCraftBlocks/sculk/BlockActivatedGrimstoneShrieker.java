@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.entity.EntityWarden;
-import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.entity.EntityWarden;
+import com.nova_craft.entity.DeepoidDragon.EntityDeepoidDragon;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockActivatedGrimstoneShrieker() {
 		super(Material.rock);
 		this.setBlockUnbreakable();
@@ -36,7 +36,7 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 		this.setStepSound(ModSounds.soundGrimstone);
 		this.setTickRandomly(true);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -51,7 +51,7 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 		iconTop = iconRegister.registerIcon("nova_craft:warden_altar_top");
 	}
 
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random random) {
@@ -70,14 +70,14 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 			world.spawnParticle("townaura", f, f1, f2, -0.1D, 0.0D, 0.2D);
 			world.spawnParticle("townaura", f, f1, f2, 0.1D, 0.0D, -0.2D);
 	}
-	
+
 	public void updateTick(World world, int i, int j, int k, Random random) {
-		
-		if (true) {	
+
+		if (true) {
 		world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
 		world.setBlock(i, j, k, NovaCraftBlocks.grimstone_shrieker);
 		world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
-		
+
 			if (!world.isRemote)
         	{
 				EntityWarden warden = new EntityWarden(world);
@@ -86,19 +86,19 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 				warden.spawnExplosionParticle();
         	}
 		}
-		
+
 		world.scheduleBlockUpdate(i, j, k, this, this.tickRate(world));
 	}
-	
+
 	@Override
 	public int tickRate(World world) {
 		return 40;
 	}
-	
+
 	protected String getWardenSummoningSound()
     {
         return "nova_craft:boss.Wardensummoning";
     }
-	
+
 
 }

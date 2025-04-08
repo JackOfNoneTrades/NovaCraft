@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
 
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.init.*;
 
@@ -16,7 +16,7 @@ public class LuminantTreeGen extends WorldGenAbstractTree
     int fruitChance;
     int randHeight;
     boolean branches;
-    
+
     public LuminantTreeGen(final Block leafID, final Block fruitMeta, final int fruitChance, final int heightWeight, final boolean branchFlag) {
         super(true);
         this.leaves = leafID;
@@ -25,7 +25,7 @@ public class LuminantTreeGen extends WorldGenAbstractTree
         this.randHeight = heightWeight;
         this.branches = branchFlag;
     }
-    
+
     public boolean generate(final World world, final Random random, final int x, final int y, final int z) {
         boolean cangen = true;
         final int height = random.nextInt(this.randHeight) + (this.branches ? 8 : 4);
@@ -229,13 +229,13 @@ public class LuminantTreeGen extends WorldGenAbstractTree
         }
         return true;
     }
-    
+
     public void setBlockAirCheck(final World world, final int x, final int y, final int z, final Block blockID) {
         if (world.getBlock(x, y, z) == Blocks.air) {
             world.setBlock(x, y, z, blockID);
         }
     }
-    
+
     public void setBlockAirCheck(final World world, final int x, final int y, final int z, final Block blockID, final Block leaveID) {
         if (world.getBlock(x, y, z) == Blocks.air) {
             if (leaveID == Blocks.air) {

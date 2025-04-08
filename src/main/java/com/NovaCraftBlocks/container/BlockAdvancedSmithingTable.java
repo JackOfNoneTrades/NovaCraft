@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.container;
+package com.nova_craftBlocks.container;
 
 import net.minecraft.block.*;
 import net.minecraft.util.*;
 
-import com.NovaCraft.NovaCraft;
+import com.nova_craft.NovaCraft;
 
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.block.material.*;
@@ -19,16 +19,16 @@ public class BlockAdvancedSmithingTable extends Block
     private IIcon field_150035_a;
     @SideOnly(Side.CLIENT)
     private IIcon field_150034_b;
-    
+
     @SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-    
+
     public BlockAdvancedSmithingTable() {
         super(Material.wood);
         this.setHardness(2.5f);
         this.setStepSound(Block.soundTypeWood);
     }
-    
+
     public boolean onBlockActivated(final World par1World, final int p_149727_2_, final int p_149727_3_, final int p_149727_4_, final EntityPlayer par5EntityPlayer, final int p_149727_6_, final float p_149727_7_, final float p_149727_8_, final float p_149727_9_) {
         if (par5EntityPlayer.isSneaking()) {
             return false;
@@ -39,13 +39,13 @@ public class BlockAdvancedSmithingTable extends Block
         par5EntityPlayer.openGui((Object)NovaCraft.instance, 1, par1World, p_149727_2_, p_149727_3_, p_149727_4_);
         return true;
     }
-    
+
     @Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
 		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
 	}
-    
+
     @Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister){

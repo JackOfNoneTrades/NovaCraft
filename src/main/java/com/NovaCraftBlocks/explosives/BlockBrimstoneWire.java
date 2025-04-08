@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.explosives;
+package com.nova_craftBlocks.explosives;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -29,15 +29,15 @@ public class BlockBrimstoneWire extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockBrimstoneWire() {
 		super(Material.circuits);
 		this.setStepSound(soundTypeStone);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.01F, 1.0F);
 	}
-	
+
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block l) {
-		
+
 		if (world.isBlockIndirectlyGettingPowered(x, y, z))
         {
             this.onBlockDestroyedByPlayer(world, x, y, z, 1);
@@ -45,7 +45,7 @@ public class BlockBrimstoneWire extends Block {
             world.setBlockToAir(x, y, z);
         }
 	}
-	
+
 	/**
      * Called whenever the block is added into the world. Args: world, x, y, z
      */
@@ -59,12 +59,12 @@ public class BlockBrimstoneWire extends Block {
             world.setBlockToAir(x, y, z);
         }
     }
-    
+
     public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
         return World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) || p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_) == Blocks.glowstone;
     }
-    
+
     public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion p_149723_5_)
     {
         if (!world.isRemote)
@@ -72,12 +72,12 @@ public class BlockBrimstoneWire extends Block {
         	world.createExplosion((Entity) null, x, y, z, 2F, true);
         }
     }
-	
+
 	public boolean canDropFromExplosion(Explosion p_149659_1_)
     {
         return false;
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -91,7 +91,7 @@ public class BlockBrimstoneWire extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:brimstone_dust_block");
 		iconTop = iconRegister.registerIcon("nova_craft:brimstone_dust_block");
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -101,15 +101,15 @@ public class BlockBrimstoneWire extends Block {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
+
 	 public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
 	        return null;
 	}
-	 
+
 	protected boolean canSilkHarvest() {
 		   return false;
 	 }
-	 
+
 	 public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	  {
 	        return NovaCraftItems.brimstone_dust;

@@ -1,13 +1,13 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityPrisoner;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.entity.EntityPrisoner;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -31,7 +31,7 @@ public class BlockUnknownPortalSealed extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockUnknownPortalSealed() {
 		super(Material.rock);
 		this.setBlockUnbreakable();
@@ -40,7 +40,7 @@ public class BlockUnknownPortalSealed extends Block {
 		this.setBlockBounds(0.3F, 0.0F, 0.0F, 0.7F, 1.0F, 1.0F);
 		this.setTickRandomly(true);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -54,7 +54,7 @@ public class BlockUnknownPortalSealed extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:unknown_portal_sealed");
 		iconTop = iconRegister.registerIcon("nova_craft:unknown_portal_sealed");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
@@ -93,15 +93,15 @@ public class BlockUnknownPortalSealed extends Block {
 	        }
 		}
 	}
-	
+
 	public boolean isOpaqueCube() {
         return false;
     }
-    
+
     public boolean renderAsNormalBlock() {
         return false;
     }
-    
+
     public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
 	      if (world.isRemote) {
 	          return true;

@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -23,7 +23,7 @@ public class BlockLacunaPlanks extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockLacunaPlanks() {
 		super(Material.wood);
 		this.setHardness(3);
@@ -31,7 +31,7 @@ public class BlockLacunaPlanks extends Block {
 		this.setStepSound(soundTypeWood);
 		this.setHarvestLevel("axe", 0);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -45,11 +45,11 @@ public class BlockLacunaPlanks extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:lacuna_planks");
 		iconTop = iconRegister.registerIcon("nova_craft:lacuna_planks");
 	}
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return Item.getItemFromBlock(NovaCraftBlocks.lacuna_planks);
     }
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

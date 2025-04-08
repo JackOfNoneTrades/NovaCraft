@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import java.util.Random;
 
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraft.sounds.Reference;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craft.sounds.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,7 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class BlockCrystallizedVanite extends Block {
-		
+
 	public BlockCrystallizedVanite() {
 		this(Material.iron);
 	}
@@ -26,16 +26,16 @@ public class BlockCrystallizedVanite extends Block {
 		this.setStepSound(ModSounds.soundNullstone);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-		
+
 	protected boolean canSilkHarvest() {
 	       return true;
 	   }
-		
+
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	   {
 	       return null;
 	   }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
@@ -60,6 +60,6 @@ public class BlockCrystallizedVanite extends Block {
 			}
 
 	}
-	
+
 
 }

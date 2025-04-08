@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.ores;
+package com.nova_craftBlocks.ores;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.entity.EntityFireProofItemNovaCraft;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class BlockTophinite extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockTophinite() {
 		super(Material.iron);
 		this.setHardness(40);
@@ -36,7 +36,7 @@ public class BlockTophinite extends Block {
 		this.setStepSound(ModSounds.soundNullstone);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -50,11 +50,11 @@ public class BlockTophinite extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:block_of_tophinite");
 		iconTop = iconRegister.registerIcon("nova_craft:block_of_tophinite");
 	}
-	
+
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
 		return true;
 	}
-	
+
 }
 

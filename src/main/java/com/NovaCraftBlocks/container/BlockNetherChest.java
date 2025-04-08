@@ -1,17 +1,17 @@
-package com.NovaCraftBlocks.container;
+package com.nova_craftBlocks.container;
 
 import java.util.Iterator;
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.EntitySculkSymbiote;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.OtherModItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.achievements.AchievementsNovaCraft;
+import com.nova_craft.config.Configs;
+import com.nova_craft.entity.EntitySculkSymbiote;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.registry.OtherModItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.common.Loader;
@@ -36,7 +36,7 @@ public class BlockNetherChest extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockNetherChest() {
 		super(Material.rock);
 		this.setHardness(50);
@@ -44,7 +44,7 @@ public class BlockNetherChest extends Block {
 		this.setStepSound(Block.soundTypeWood);
 		this.setHarvestLevel("axe", 0);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -58,21 +58,21 @@ public class BlockNetherChest extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:nether_crate");
 		iconTop = iconRegister.registerIcon("nova_craft:nether_crate");
 	}
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return null;
     }
-	
+
 	protected boolean canSilkHarvest() {
         return false;
     }
-	
+
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int l) {
 		int rand2 = (int)(1 + Math.random() * 16);
 		int rand = (int)(1 + Math.random() * 11);
-		
+
 		switch (rand2) {
-		
+
 		case 1: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.iron_ingot, 6 + rand));
 
@@ -90,92 +90,92 @@ public class BlockNetherChest extends Block {
 		}
 		case 3: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.gold_ingot, 8 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
 		case 4: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.vanite_chunk, 8 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
 		case 5: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.vanite_chunk, 12 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
 		case 6: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.gold_ingot, 5 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
 		case 7: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.flaming_pitcher_petal, 1));
-			
+
 			world.spawnEntityInWorld(entityItem);
-		}		
+		}
 		case 8: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.brimstone_dust, 15 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
 		case 9: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.blazing_coal, 4 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
 		case 10: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.quartz, 22 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
-		
+
 		case 11: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.quartz, 12 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
-		
+
 		case 12: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.iron_ingot, 6 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 		}
-		
+
 		case 13: if (!world.isRemote) {
 			if (Loader.isModLoaded("divinerpg")) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.netheriteIngot, 2 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 			}
-		}	
+		}
 
 		case 14: if (!world.isRemote) {
 			if (Loader.isModLoaded("netherlicious")) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.VoidQuartzItem, 10 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 			}
 		}
-		
+
 		case 15: if (!world.isRemote) {
 			if (Loader.isModLoaded("netherlicious")) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.Nugget, 15 + rand));
-			
+
 			world.spawnEntityInWorld(entityItem);
 			}
 		}
-		
+
 		case 16: if (!world.isRemote) {
 			if (Loader.isModLoaded("netherlicious")) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.Materials, 1));
-			
+
 			world.spawnEntityInWorld(entityItem);
 			}
 		}
-		
+
 		}
 	}
-	
+
 	@Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -186,8 +186,8 @@ public class BlockNetherChest extends Block {
             ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        }	
-        
+        }
+
     }
 
 }

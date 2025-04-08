@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.container;
+package com.nova_craftBlocks.container;
 
 import net.minecraft.block.material.*;
 import net.minecraft.block.*;
@@ -13,11 +13,11 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import java.util.*;
 
-import com.NovaCraft.TileEntity.TileEntityAncientChest;
-import com.NovaCraft.container.InventoryLargeAncientChest;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.TileEntity.TileEntityAncientChest;
+import com.nova_craft.container.InventoryLargeAncientChest;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.inventory.*;
 import net.minecraft.client.renderer.texture.*;
@@ -27,7 +27,7 @@ public class BlockAncientChest extends BlockContainer
 {
   private final Random random;
   public final int chestType;
-  
+
   public BlockAncientChest(final int par2) {
       super(Material.rock);
       this.random = new Random();
@@ -39,24 +39,24 @@ public class BlockAncientChest extends BlockContainer
       this.setCreativeTab(NovaCraftCreativeTabs.blocks);
       this.setBlockBounds(0.0625f, 0.0f, 0.0625f, 0.9375f, 0.875f, 0.9375f);
   }
-  
+
   public Block setIconName(final String name) {
       this.textureName = "nova_craft:" + name;
       return this.setBlockName("nova_craft:" + name);
   }
-  
+
   public boolean isOpaqueCube() {
       return false;
   }
-  
+
   public boolean renderAsNormalBlock() {
       return false;
   }
-  
+
   public int getRenderType() {
       return NovaCraftBlocks.AncientChestRenderId;
   }
-  
+
   public void setBlockBoundsBasedOnState(final IBlockAccess par1IBlockAccess, final int par2, final int par3, final int par4) {
       if (par1IBlockAccess.getBlock(par2, par3, par4 - 1) == this) {
           this.setBlockBounds(0.0625f, 0.0f, 0.0f, 0.9375f, 0.875f, 0.9375f);
@@ -74,7 +74,7 @@ public class BlockAncientChest extends BlockContainer
           this.setBlockBounds(0.0625f, 0.0f, 0.0625f, 0.9375f, 0.875f, 0.9375f);
       }
   }
-  
+
   public void onBlockAdded(final World par1World, final int par2, final int par3, final int par4) {
       super.onBlockAdded(par1World, par2, par3, par4);
       this.unifyAdjacentChests(par1World, par2, par3, par4);
@@ -95,7 +95,7 @@ public class BlockAncientChest extends BlockContainer
           this.unifyAdjacentChests(par1World, par2 + 1, par3, par4);
       }
   }
-  
+
   public void onBlockPlacedBy(final World par1World, final int par2, final int par3, final int par4, final EntityLivingBase par5EntityLivingBase, final ItemStack par6ItemStack) {
       final Block l = par1World.getBlock(par2, par3, par4 - 1);
       final Block i1 = par1World.getBlock(par2, par3, par4 + 1);
@@ -142,7 +142,7 @@ public class BlockAncientChest extends BlockContainer
           ((TileEntityAncientChest)par1World.getTileEntity(par2, par3, par4)).setChestGuiName(par6ItemStack.getDisplayName());
       }
   }
-  
+
   public void unifyAdjacentChests(final World par1World, final int par2, final int par3, final int par4) {
       if (!par1World.isRemote) {
           final Block l = par1World.getBlock(par2, par3, par4 - 1);
@@ -212,7 +212,7 @@ public class BlockAncientChest extends BlockContainer
           par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
       }
   }
-  
+
   public boolean canPlaceBlockAt(final World par1World, final int par2, final int par3, final int par4) {
       int l = 0;
       if (par1World.getBlock(par2 - 1, par3, par4) == this) {
@@ -229,11 +229,11 @@ public class BlockAncientChest extends BlockContainer
       }
       return l <= 1 && !this.isThereANeighborChest(par1World, par2 - 1, par3, par4) && !this.isThereANeighborChest(par1World, par2 + 1, par3, par4) && !this.isThereANeighborChest(par1World, par2, par3, par4 - 1) && !this.isThereANeighborChest(par1World, par2, par3, par4 + 1);
   }
-  
+
   private boolean isThereANeighborChest(final World par1World, final int par2, final int par3, final int par4) {
       return par1World.getBlock(par2, par3, par4) == this && (par1World.getBlock(par2 - 1, par3, par4) == this || par1World.getBlock(par2 + 1, par3, par4) == this || par1World.getBlock(par2, par3, par4 - 1) == this || par1World.getBlock(par2, par3, par4 + 1) == this);
   }
-  
+
   public void onNeighborBlockChange(final World par1World, final int par2, final int par3, final int par4, final Block par5) {
       super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
       final TileEntityAncientChest TileEntityAncientChest = (TileEntityAncientChest)par1World.getTileEntity(par2, par3, par4);
@@ -241,7 +241,7 @@ public class BlockAncientChest extends BlockContainer
           TileEntityAncientChest.updateContainingBlockInfo();
       }
   }
-  
+
   public void breakBlock(final World par1World, final int par2, final int par3, final int par4, final Block par5, final int par6) {
       final TileEntityAncientChest TileEntityAncientChest = (TileEntityAncientChest)par1World.getTileEntity(par2, par3, par4);
       if (TileEntityAncientChest != null) {
@@ -274,7 +274,7 @@ public class BlockAncientChest extends BlockContainer
       }
       super.breakBlock(par1World, par2, par3, par4, par5, par6);
   }
-  
+
   public boolean onBlockActivated(final World par1World, final int par2, final int par3, final int par4, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
       if (par1World.isRemote) {
           return true;
@@ -285,7 +285,7 @@ public class BlockAncientChest extends BlockContainer
       }
       return true;
   }
-  
+
   public IInventory getInventory(final World par1World, final int par2, final int par3, final int par4) {
       Object object = par1World.getTileEntity(par2, par3, par4);
       if (object == null) {
@@ -308,16 +308,16 @@ public class BlockAncientChest extends BlockContainer
       }
       return (IInventory)object;
   }
-  
+
   public TileEntity createNewTileEntity(final World par1World, final int i) {
       final TileEntityAncientChest TileEntityAncientChest = new TileEntityAncientChest();
       return TileEntityAncientChest;
   }
-  
+
   public boolean canProvidePower() {
       return this.chestType == 1;
   }
-  
+
   public int isProvidingWeakPower(final IBlockAccess par1IBlockAccess, final int par2, final int par3, final int par4, final int par5) {
       if (!this.canProvidePower()) {
           return 0;
@@ -325,19 +325,19 @@ public class BlockAncientChest extends BlockContainer
       final int i1 = ((TileEntityAncientChest)par1IBlockAccess.getTileEntity(par2, par3, par4)).numUsingPlayers;
       return MathHelper.clamp_int(i1, 0, 15);
   }
-  
+
   public int isProvidingStrongPower(final IBlockAccess par1IBlockAccess, final int par2, final int par3, final int par4, final int par5) {
       return (par5 == 1) ? this.isProvidingWeakPower(par1IBlockAccess, par2, par3, par4, par5) : 0;
   }
-  
+
   public boolean hasComparatorInputOverride() {
       return true;
   }
-  
+
   public int getComparatorInputOverride(final World par1World, final int par2, final int par3, final int par4, final int par5) {
       return Container.calcRedstoneFromInventory(this.getInventory(par1World, par2, par3, par4));
   }
-  
+
   @SideOnly(Side.CLIENT)
   public void registerBlockIcons(final IIconRegister iconRegister) {
       this.blockIcon = iconRegister.registerIcon("nova_craft:nullstone");

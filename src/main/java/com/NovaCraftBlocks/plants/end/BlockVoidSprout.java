@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -40,15 +40,15 @@ public class BlockVoidSprout extends BlockBush implements IShearable {
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	@Override
 	public Item getItemDropped(int meta, Random random, int fortune) {
 		return null;
 	}
-	
+
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
@@ -60,7 +60,7 @@ public class BlockVoidSprout extends BlockBush implements IShearable {
 	            ret.add(new ItemStack(NovaCraftBlocks.void_sprout));
 	        return ret;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {
@@ -71,5 +71,5 @@ public class BlockVoidSprout extends BlockBush implements IShearable {
             p_149734_1_.spawnParticle("townaura", (double)((float)p_149734_2_ + p_149734_5_.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + p_149734_5_.nextFloat()), 0.0D, 0.0D, 0.0D);
         }
     }
-	
+
 }

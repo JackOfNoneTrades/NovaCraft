@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import net.minecraft.world.*;
 import net.minecraft.block.*;
 import java.util.*;
 
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
 
 import net.minecraft.init.*;
 import cpw.mods.fml.relauncher.*;
@@ -18,7 +18,7 @@ public class BlockGlowTorch extends BlockTorch
         this.setTickRandomly(true);
         this.setStepSound(soundTypeWood);
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
         final int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);

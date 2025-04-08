@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.decorative;
+package com.nova_craftBlocks.decorative;
 
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemSlab;
@@ -10,5 +10,5 @@ public class ItemNovaCraftSlab extends ItemSlab {
 		super(p_i45355_1_, p_i45355_2_, p_i45355_3_, p_i45355_4_);
 	}
 
-	
+
 }

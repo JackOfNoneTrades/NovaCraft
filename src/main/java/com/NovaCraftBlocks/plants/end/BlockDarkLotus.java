@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -42,25 +42,25 @@ public class BlockDarkLotus extends BlockBush implements IShearable {
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	@Override
 	public Item getItemDropped(int meta, Random random, int fortune) {
 		return null;
 	}
-	
+
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}
-	
+
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {		
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 
 		entity.motionY = 3.0D;
-		
+
 	}
 
 	@Override
@@ -69,10 +69,10 @@ public class BlockDarkLotus extends BlockBush implements IShearable {
 	            ret.add(new ItemStack(NovaCraftBlocks.dark_lotus));
 	        return ret;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
-    {		
+    {
 		if (!p_149734_1_.isRemote) {
 			return;
 		}
@@ -80,7 +80,7 @@ public class BlockDarkLotus extends BlockBush implements IShearable {
 		if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
 			return;
 		}
-		
+
         int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
         double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
         double d1 = (double)((float)p_149734_3_ - 1.0F);
@@ -109,5 +109,5 @@ public class BlockDarkLotus extends BlockBush implements IShearable {
         	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.28D, 0.0D, 0.0f, new Object[0]);
         }
     }
-	
+
 }

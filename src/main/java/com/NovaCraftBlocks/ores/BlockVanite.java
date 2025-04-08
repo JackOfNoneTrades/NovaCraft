@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.ores;
+package com.nova_craftBlocks.ores;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.decorative.BlocksNovaCraftSlab;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.decorative.BlocksNovaCraftSlab;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class BlockVanite extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockVanite() {
 		super(Material.iron);
 		this.setHardness(15);
@@ -37,7 +37,7 @@ public class BlockVanite extends Block {
 		this.setHarvestLevel("pickaxe", 3);
 		this.setTickRandomly(true);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -51,12 +51,12 @@ public class BlockVanite extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:block_of_vanite");
 		iconTop = iconRegister.registerIcon("nova_craft:block_of_vanite");
 	}
-	
+
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
 		return true;
 	}
-	
+
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		World par1World = world;
 		int par2 = i;
@@ -79,7 +79,7 @@ public class BlockVanite extends Block {
 			}
 
 	}
-	
+
 	public void updateTick(World world, int i, int j, int k, Random random) {
 
 		//Diamond
@@ -141,7 +141,7 @@ public class BlockVanite extends Block {
 		if (random.nextInt(15) == 0  && world.provider.dimensionId == 1) {
           if (world.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_diamond) {
               world.setBlock(i, j - 1, k, NovaCraftBlocks.nullstone_diamond, 0, 2);
-              }		
+              }
 		}
           //------------------------------------------------------------------------------
 
@@ -204,7 +204,7 @@ public class BlockVanite extends Block {
 			if (random.nextInt(15) == 0 && world.provider.dimensionId == 1) {
 	          if (world.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_gold) {
 	              world.setBlock(i, j - 1, k, NovaCraftBlocks.nullstone_gold, 0, 2);
-	              }		
+	              }
 			}
           //-----------------------------------------------------------------------------
 
@@ -267,10 +267,10 @@ public class BlockVanite extends Block {
 				if (random.nextInt(15) == 0 && world.provider.dimensionId == 1) {
 		          if (world.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_iron) {
 		              world.setBlock(i, j - 1, k, NovaCraftBlocks.nullstone_iron, 0, 2);
-		              }		
+		              }
 				}
            //-----------------------------------------------------------------------
-           
+
            //Redstone
 				if (random.nextInt(3) == 0) {
 			           if (world.getBlock(i, j, k + 1) == Blocks.redstone_ore) {
@@ -330,10 +330,10 @@ public class BlockVanite extends Block {
 					if (random.nextInt(15) == 0 && world.provider.dimensionId == 1) {
 			          if (world.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_redstone) {
 			              world.setBlock(i, j - 1, k, NovaCraftBlocks.nullstone_redstone, 0, 2);
-			              }		
+			              }
 					}
            //--------------------------------------------------------------------------
-           
+
            //Lapis
 					if (random.nextInt(3) == 0) {
 				           if (world.getBlock(i, j, k + 1) == Blocks.lapis_ore) {
@@ -392,7 +392,7 @@ public class BlockVanite extends Block {
 						if (random.nextInt(15) == 0 && world.provider.dimensionId == 1) {
 					          if (world.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_lapis) {
 					              world.setBlock(i, j - 1, k, NovaCraftBlocks.nullstone_lapis, 0, 2);
-					        }		
+					        }
 						}
           //---------------------------------------------------------------------------
 
@@ -425,7 +425,7 @@ public class BlockVanite extends Block {
 
 		world.scheduleBlockUpdate(i, j, k, this, this.tickRate(world));
 	}
-	
+
 	@Override
 	public int tickRate(World world) {
 		return 4000;

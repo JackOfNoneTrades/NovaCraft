@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.ores;
+package com.nova_craftBlocks.ores;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +24,7 @@ public class BlockXanciumOre extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockXanciumOre() {
 		super(Material.rock);
 		this.setHardness(4);
@@ -32,7 +32,7 @@ public class BlockXanciumOre extends Block {
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -46,15 +46,15 @@ public class BlockXanciumOre extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:xancium_ore");
 		iconTop = iconRegister.registerIcon("nova_craft:xancium_ore");
 	}
-	
+
 	public int quantityDropped(final Random random) {
         return 2 + random.nextInt(6);
     }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.xancium_dust;
     }
-	
+
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
@@ -69,16 +69,16 @@ public class BlockXanciumOre extends Block {
 			return this.quantityDropped(random);
 		}
 	}
-	
+
 	@Override
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {
 		Random random = new Random();
 
 		if (this.getItemDropped(p_149690_5_, random, p_149690_7_) != Item.getItemFromBlock(this)) {
-			int amount = 0;	
-			
+			int amount = 0;
+
 				amount = MathHelper.getRandomIntegerInRange(random, 3, 6);
-			
+
 
 			return amount;
 		}

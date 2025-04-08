@@ -1,14 +1,14 @@
-package com.NovaCraftBlocks.ores;
+package com.nova_craftBlocks.ores;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.entity.EntityFireProofItemNovaCraft;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.registry.OtherModBlocks;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -30,7 +30,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockInfusedVaniteBlockNatural extends Block {
-	
+
 	public BlockInfusedVaniteBlockNatural() {
 		super(Material.iron);
 		this.setHardness(60);
@@ -38,7 +38,7 @@ public class BlockInfusedVaniteBlockNatural extends Block {
 		this.setStepSound(ModSounds.soundSculk);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
     @SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
@@ -74,7 +74,7 @@ public class BlockInfusedVaniteBlockNatural extends Block {
 			d5 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
 			par1World.spawnParticle("townaura", d0, d1, d2, d3, d4, d5);
 		}
-		
+
 		super.randomDisplayTick(world, i, j, k, random);
         if (random.nextInt(5) == 0) {
         	ParticleHandler.WARDEN.spawn(world, i + random.nextFloat(), j + 0.1f, k + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
@@ -87,20 +87,20 @@ public class BlockInfusedVaniteBlockNatural extends Block {
 	public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon("nova_craft:darkanimate_alternate");
     }
-	
+
 	protected boolean canSilkHarvest() {
 	    return true;
 	 }
-	
-	
+
+
 	public int quantityDropped(final Random random) {
         return 1;
     }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.dark_essence;
     }
-	
+
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
@@ -115,21 +115,21 @@ public class BlockInfusedVaniteBlockNatural extends Block {
 			return this.quantityDropped(random);
 		}
 	}
-	
+
 	@Override
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {
 		Random random = new Random();
 
 		if (this.getItemDropped(p_149690_5_, random, p_149690_7_) != Item.getItemFromBlock(this)) {
-			int amount = 0;	
-			
+			int amount = 0;
+
 				amount = MathHelper.getRandomIntegerInRange(random, 12, 24);
-			
+
 
 			return amount;
 		}
 
 		return 0;
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,8 +16,8 @@ public class BlockInkedVacuumGlass extends BlockBreakable
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
-    private static final String __OBFID = "CL_00000249";
+
+    //private static final String __OBFID = "CL_00000249";
 
     public BlockInkedVacuumGlass(Material p_i45408_1_, boolean p_i45408_2_)
     {
@@ -28,7 +28,7 @@ public class BlockInkedVacuumGlass extends BlockBreakable
 		this.setHarvestLevel("pickaxe", 0);
 		this.setStepSound(soundTypeGlass);
     }
-    
+
     @Override
    	@SideOnly(Side.CLIENT)
    	public IIcon getIcon(int side, int meta){

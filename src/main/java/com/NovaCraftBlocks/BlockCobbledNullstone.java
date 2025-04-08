@@ -1,7 +1,7 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -19,7 +19,7 @@ public class BlockCobbledNullstone extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockCobbledNullstone() {
 		super(Material.rock);
 		this.setHardness(5);
@@ -27,7 +27,7 @@ public class BlockCobbledNullstone extends Block {
 		this.setStepSound(ModSounds.soundNullstone);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){

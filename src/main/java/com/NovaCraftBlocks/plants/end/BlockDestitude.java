@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -10,10 +10,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.special.IEmissiveLayerBlock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,7 +23,7 @@ public class BlockDestitude extends Block implements IEmissiveLayerBlock {
 	public static final int[] colors = new int[]{0xfdf0fe}; //0x3f004d
 	private IIcon infusedOverlay;
     private IIcon[] icon;
-	
+
 	public BlockDestitude() {
 		super(Material.grass);
 		this.icon = new IIcon[2];
@@ -33,31 +33,31 @@ public class BlockDestitude extends Block implements IEmissiveLayerBlock {
 		this.setStepSound(ModSounds.soundSculk);
 		this.setHarvestLevel("shovel", 0);
 	}
-	
+
 	protected boolean canSilkHarvest() {
 	    return true;
 	 }
-		
+
  	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	  {
 	    return null;
 	  }
-	
+
 	public void registerBlockIcons(final IIconRegister iconRegister) {
         this.icon[0] = iconRegister.registerIcon("nova_craft:destitute_block");
         this.icon[1] = iconRegister.registerIcon("nova_craft:destitute_block");
         infusedOverlay = iconRegister.registerIcon("nova_craft:destitute_block_glow");
     }
-    
+
     public IIcon getIcon(final int side, final int meta) {
     	return this.icon[0];
     }
-    
+
     @Override
     public int getRenderType() {
     	return RenderIDs.EMISSIVE_DOUBLE_LAYER_3D;
     }
-    
+
     @Override
 	public IIcon getSecondLayerIcon(int side, int meta) {
 			return infusedOverlay;
@@ -67,20 +67,20 @@ public class BlockDestitude extends Block implements IEmissiveLayerBlock {
 	public int getEmissiveMinBrightness(int meta) {
 		return 10;
 	}
-	
+
 	@Override
 	public int getEmissiveLayerColor(int meta) {
 		return colors[meta % colors.length];
 	}
-	
+
 	@Override
 	public boolean doesEmissiveLayerHaveDirShading(int meta) {
 		return false;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
-    {		
+    {
 		if (!p_149734_1_.isRemote) {
 			return;
 		}
@@ -88,7 +88,7 @@ public class BlockDestitude extends Block implements IEmissiveLayerBlock {
 		if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
 			return;
 		}
-		
+
         int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
         double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
         double d1 = (double)((float)p_149734_3_ - 1.0F);

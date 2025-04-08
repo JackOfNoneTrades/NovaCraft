@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -40,16 +40,16 @@ public class BlockBloomingBarb extends BlockBush {
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
     {
-		int rand = (int)(1 + Math.random() * 40);		
+		int rand = (int)(1 + Math.random() * 40);
 		if (rand == 1) {
         p_149670_5_.attackEntityFrom(DamageSource.cactus, 1.0F);
 		}
     }
-	
+
 }

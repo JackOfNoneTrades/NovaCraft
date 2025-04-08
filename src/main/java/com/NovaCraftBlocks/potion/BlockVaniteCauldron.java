@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,7 +23,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockVaniteCauldron extends BlockCauldron {
-	
+
 	public BlockVaniteCauldron() {
 		super();
 		this.setHardness(12);
@@ -34,33 +34,33 @@ public class BlockVaniteCauldron extends BlockCauldron {
 		setHarvestLevel("pickaxe", 3);
 		this.setCreativeTab((CreativeTabs)null);
 	}
-	
+
 	protected boolean canSilkHarvest() {
 	    return false;
 	 }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.vanite_cauldron_item;
     }
-	
+
 	@SideOnly(Side.CLIENT)
     public static IIcon getCauldronIcon(String p_150026_0_)
     {
         return (IIcon) (p_150026_0_.equals("inner") ? NovaCraftBlocks.vanite_cauldron : (p_150026_0_.equals("bottom") ? NovaCraftBlocks.vanite_cauldron : null));
     }
-	
+
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
 		return Blocks.cauldron.getIcon(side, meta);
 	}
-	
+
 	@Override
 	public int tickRate(World world)
 	{
 		return 500;
 	}
-	
+
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
 
@@ -75,7 +75,7 @@ public class BlockVaniteCauldron extends BlockCauldron {
            }
 		}
 	}
-	
+
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		World par1World = world;
 		int par2 = i;
@@ -98,7 +98,7 @@ public class BlockVaniteCauldron extends BlockCauldron {
 			}
 
 	}
-	
+
 	@Override
 	public int getRenderType()
 	{

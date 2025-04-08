@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import java.util.Random;
 

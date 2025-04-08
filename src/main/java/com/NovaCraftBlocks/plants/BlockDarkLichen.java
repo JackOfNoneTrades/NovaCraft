@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
@@ -9,17 +9,17 @@ import net.minecraft.block.*;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
-import com.NovaCraft.particles.ParticleDarkLichen;
-import com.NovaCraft.particles.ParticleDarkLichenThree;
-import com.NovaCraft.particles.ParticleDarkLichenTwo;
-import com.NovaCraft.particles.ParticleGlowLichen;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.particles.entity.EntityRandomShapedParticle;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
+import com.nova_craft.particles.ParticleDarkLichen;
+import com.nova_craft.particles.ParticleDarkLichenThree;
+import com.nova_craft.particles.ParticleDarkLichenTwo;
+import com.nova_craft.particles.ParticleGlowLichen;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.particles.entity.EntityRandomShapedParticle;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.special.IEmissiveLayerBlock;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -30,7 +30,7 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 	public static final int[] colors = new int[]{0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034};
 	private IIcon infusedOverlay;
     private IIcon[] icon;
-    
+
     public BlockDarkLichen() {
         super(Material.plants);
         this.icon = new IIcon[2];
@@ -42,44 +42,44 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
         this.setTickRandomly(false);
     }
-    
+
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.icon[0] = iconRegister.registerIcon("nova_craft:dark_lichen");
         this.icon[1] = iconRegister.registerIcon("nova_craft:dark_lichen");
         infusedOverlay = iconRegister.registerIcon("nova_craft:glow_lichen_overlay");
     }
-    
+
     public IIcon getIcon(final int side, final int meta) {
         return this.icon[0];
     }
-    
+
     @Override
     public int getRenderType() {
     	return RenderIDs.EMISSIVE_DOUBLE_LAYER;
     }
-    
+
     public int damageDropped(final int meta) {
         return 0;
     }
-    
+
     public boolean isOpaqueCube() {
         return false;
     }
-    
+
     public boolean renderAsNormalBlock() {
         return false;
     }
-    
+
     public void setBlockBoundsForItemRender() {
         this.func_150089_b(0);
     }
-    
+
     protected void func_150089_b(final int p_150089_1_) {
         final byte b0 = 0;
         final float f = 1 * (1 + b0) / 16.0f;
         this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
     }
-    
+
     @Override
 	public IIcon getSecondLayerIcon(int side, int meta) {
 			return infusedOverlay;
@@ -89,17 +89,17 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 	public int getEmissiveMinBrightness(int meta) {
 		return 15;
 	}
-	
+
 	@Override
 	public int getEmissiveLayerColor(int meta) {
 		return colors[meta % colors.length];
 	}
-	
+
 	@Override
 	public boolean doesEmissiveLayerHaveDirShading(int meta) {
 		return false;
 	}
-    
+
     public void setBlockBoundsBasedOnState(final IBlockAccess access, final int x, final int y, final int z) {
         final int meta = access.getBlockMetadata(x, y, z);
         float widthMin = 0.0f;
@@ -108,7 +108,7 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
         float widthMax = 0.0f;
         float heightMax = 0.0f;
         float depthMax = 0.0f;
-        
+
             switch (meta) {
                 case 0: {
                     widthMin = 0.0f;
@@ -218,11 +218,11 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
                     depthMax = 0.0f;
                     break;
                 }
-            }                 
-        
+            }
+
         this.setBlockBounds(0.0f + widthMin, 0.0f + heightMin, 0.0f + depthMin, 1.0f - widthMax, 1.0f - heightMax, 1.0f - depthMax);
     }
-    
+
     public void onNeighborBlockChange(final World world, final int i, final int j, final int k, final Block l) {
         final int md = world.getBlockMetadata(i, j, k);
         if (this.checkIfAttachedToBlock(world, i, j, k)) {
@@ -251,7 +251,7 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
             }
         }
     }
-    
+
     private boolean checkIfAttachedToBlock(final World world, final int i, final int j, final int k) {
         if (!this.canPlaceBlockAt(world, i, j, k)) {
             this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
@@ -260,15 +260,15 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
         }
         return true;
     }
-    
+
     public boolean canPlaceBlockAt(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));
     }
-    
+
     public boolean canBlockStay(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));
     }
-    
+
     public int onBlockPlaced(final World world, final int x, final int y, final int z, final int side, final float hitX, final float hitY, final float hitZ, int meta) {
         if (side == 0 && world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN)) {
             meta = 0;
@@ -290,7 +290,7 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
         }
         return meta;
     }
-    
+
     public void updateTick(final World world, final int x, final int y, final int z, final Random rand) {
         final int meta = world.getBlockMetadata(x, y, z);
         int attempt = 0;
@@ -418,8 +418,8 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
             }
         }
     }
-    
-    
+
+
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -431,7 +431,7 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
             ParticleHandler.DARK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.DARK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }
-        
+
 		if (!p_149734_1_.isRemote) {
 			return;
 		}
@@ -451,17 +451,17 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 
 				//ParticleDarkLichen obj = new ParticleDarkLichen(p_149734_1_, d, d1, d2, d3, d4, d5);
 				//FMLClientHandler.instance().getClient().effectRenderer.addEffect(obj);
-				
+
 				//ParticleDarkLichenTwo obj2 = new ParticleDarkLichenTwo(p_149734_1_, d, d1, d2, d3, d4, d5);
 				//FMLClientHandler.instance().getClient().effectRenderer.addEffect(obj2);
-				
+
 				ParticleDarkLichenThree obj3 = new ParticleDarkLichenThree(p_149734_1_, d, d1, d2, d3, d4, d5);
 				FMLClientHandler.instance().getClient().effectRenderer.addEffect(obj3);
 			}
-		} 
-        
+		}
+
     }
-    
+
 }
 
 

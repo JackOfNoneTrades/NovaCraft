@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.ores.vanilla;
+package com.nova_craftBlocks.ores.vanilla;
 
 import java.util.Random;
 
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class BlockNullstoneOre extends Block
 {
-    private static final String __OBFID = "CL_00000282";
+    //private static final String __OBFID = "CL_00000282";
 
     public BlockNullstoneOre()
     {
@@ -79,7 +79,7 @@ public class BlockNullstoneOre extends Block
         if (this.getItemDropped(p_149690_5_, rand, p_149690_7_) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
-            
+
              if (this == NovaCraftBlocks.nullstone_diamond)
             {
                 j1 = MathHelper.getRandomIntegerInRange(rand, 6, 9);

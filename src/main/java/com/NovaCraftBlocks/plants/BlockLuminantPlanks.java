@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -23,7 +23,7 @@ public class BlockLuminantPlanks extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockLuminantPlanks() {
 		super(Material.wood);
 		this.setHardness(3);
@@ -32,7 +32,7 @@ public class BlockLuminantPlanks extends Block {
 		this.setStepSound(soundTypeWood);
 		this.setHarvestLevel("axe", 3);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -46,7 +46,7 @@ public class BlockLuminantPlanks extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:luminant_planks");
 		iconTop = iconRegister.registerIcon("nova_craft:luminant_planks");
 	}
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return Item.getItemFromBlock(NovaCraftBlocks.luminant_planks);
     }

@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.container;
+package com.nova_craftBlocks.container;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -39,5 +39,5 @@ public class BlockNullwartBrickBookshelf extends Block {
 	public float getEnchantPowerBonus(World world, int x, int y, int z) {
 		return 2;
 	}
-	
+
 }

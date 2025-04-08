@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.stalagmites;
+package com.nova_craftBlocks.stalagmites;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +24,7 @@ public class BlockPherithium extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockPherithium() {
 		super(Material.iron);
 		this.setHardness(8);
@@ -32,7 +32,7 @@ public class BlockPherithium extends Block {
 		this.setStepSound(soundTypeMetal);
 		this.setHarvestLevel("pickaxe", 2);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -46,7 +46,7 @@ public class BlockPherithium extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:block_of_pherithium");
 		iconTop = iconRegister.registerIcon("nova_craft:block_of_pherithium");
 	}
-	
+
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
 		return true;

@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.plants.end;
+package com.nova_craftBlocks.plants.end;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -38,15 +38,15 @@ public class BlockChorusGrass extends BlockBush implements IShearable {
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	@Override
 	public Item getItemDropped(int meta, Random random, int fortune) {
 		return null;
 	}
-	
+
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
@@ -58,5 +58,5 @@ public class BlockChorusGrass extends BlockBush implements IShearable {
 	            ret.add(new ItemStack(NovaCraftBlocks.chorus_grass));
 	        return ret;
 	}
-	
+
 }

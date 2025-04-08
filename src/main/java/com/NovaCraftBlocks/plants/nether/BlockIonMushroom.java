@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.plants.nether;
+package com.nova_craftBlocks.plants.nether;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.registry.OtherModBlocks;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -29,7 +29,7 @@ public class BlockIonMushroom extends BlockMushroom {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockIonMushroom() {
 		super();
 		this.setHardness(0.1F);
@@ -38,13 +38,13 @@ public class BlockIonMushroom extends BlockMushroom {
 		this.setHarvestLevel("axe", 0);
 		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.3F, 0.7F);
 	}
-	
+
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
 	  {
-	       return (p_149854_1_ == Blocks.netherrack || p_149854_1_ == OtherModBlocks.Basalt || p_149854_1_ == OtherModBlocks.Blackstone 
+	       return (p_149854_1_ == Blocks.netherrack || p_149854_1_ == OtherModBlocks.Basalt || p_149854_1_ == OtherModBlocks.Blackstone
 	       || p_149854_1_ == OtherModBlocks.CrimsonNylium || p_149854_1_ == OtherModBlocks.FoxfireNylium || p_149854_1_ == OtherModBlocks.WarpedNylium);
 	  }
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -54,15 +54,15 @@ public class BlockIonMushroom extends BlockMushroom {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
 		return null;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {
@@ -75,7 +75,7 @@ public class BlockIonMushroom extends BlockMushroom {
             ParticleHandler.SMALLBLUEFLAME.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SMALLBLUEFLAME.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SMALLBLUEFLAME.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            
+
             ParticleHandler.SMALLBLUEFLAME.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SMALLBLUEFLAME.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.4f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SMALLBLUEFLAME.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);

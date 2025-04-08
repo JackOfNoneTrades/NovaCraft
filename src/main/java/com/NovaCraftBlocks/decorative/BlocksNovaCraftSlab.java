@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks.decorative;
+package com.nova_craftBlocks.decorative;
 
 import java.util.Random;
 
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,7 +32,7 @@ public class BlocksNovaCraftSlab extends BlockSlab {
 
 	public Block getDroppedSlab() {
 		if (this == NovaCraftBlocks.grimstone_double_slab) {
-			return NovaCraftBlocks.grimstone_slab;		 
+			return NovaCraftBlocks.grimstone_slab;
 		} else if (this == NovaCraftBlocks.cobbled_grimstone_double_slab) {
 			return NovaCraftBlocks.cobbled_grimstone_slab;
 		} else if (this == NovaCraftBlocks.cobbled_nullstone_double_slab) {
@@ -97,7 +97,7 @@ public class BlocksNovaCraftSlab extends BlockSlab {
 	public String func_150002_b(int meta) {
 		return this.name;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() {

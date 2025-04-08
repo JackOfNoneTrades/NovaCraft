@@ -1,14 +1,14 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.List;
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntitySculkAbomination;
-import com.NovaCraft.entity.EntitySculkSymbiote;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.entity.EntitySculkAbomination;
+import com.nova_craft.entity.EntitySculkSymbiote;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -38,7 +38,7 @@ public class BlockSculkBloom extends BlockMushroom {
 	private final int type;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
-	
+
 	public BlockSculkBloom(int type) {
 		super();
 		this.setHardness(0.01F);
@@ -50,7 +50,7 @@ public class BlockSculkBloom extends BlockMushroom {
 		this.setLightLevel(0.15F);
 		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.3F, 0.7F);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta)
@@ -58,10 +58,10 @@ public class BlockSculkBloom extends BlockMushroom {
 		if (meta < 0 || meta >= this.icons.length) {
             meta = 1;
         }
-		
+
 		return this.icons[meta < 6 ? 0 : 1];
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_)
@@ -72,13 +72,13 @@ public class BlockSculkBloom extends BlockMushroom {
 		}
 		super.registerBlockIcons(p_149651_1_);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
 	{
 		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
 	}
-	
+
 	/**
      * is the block grass, dirt or farmland
      */
@@ -94,7 +94,7 @@ public class BlockSculkBloom extends BlockMushroom {
     {
         return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
     }
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -104,45 +104,45 @@ public class BlockSculkBloom extends BlockMushroom {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
+
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 	   return true;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return null;
     }
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			((EntityLivingBase)player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 80, 1));
-		
+
 		}
-		
+
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
         return null;
     }
-	
+
 	@Override
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {
 		Random random = new Random();
 
 		if (this.getItemDropped(p_149690_5_, random, p_149690_7_) != Item.getItemFromBlock(this)) {
-			int amount = 0;	
-			
+			int amount = 0;
+
 				amount = MathHelper.getRandomIntegerInRange(random, 1, 2);
-			
+
 
 			return amount;
 		}

@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -28,7 +28,7 @@ public class BlockArcticMoss extends Block implements IGrowable {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockArcticMoss() {
 		super(Material.grass);
 		this.setHardness(0.5f);
@@ -36,7 +36,7 @@ public class BlockArcticMoss extends Block implements IGrowable {
 		this.setStepSound(ModSounds.soundMoss);
 		this.setHarvestLevel("shovel", 0);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -50,7 +50,7 @@ public class BlockArcticMoss extends Block implements IGrowable {
 		iconFace = iconRegister.registerIcon("nova_craft:arctic_moss_block");
 		iconTop = iconRegister.registerIcon("nova_craft:arctic_moss_block");
 	}
-	
+
 	@Override
 	public boolean func_149851_a(World p_149851_1_, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_) {
 		return true;
@@ -60,7 +60,7 @@ public class BlockArcticMoss extends Block implements IGrowable {
 	public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_) {
 		return true;
 	}
-	
+
 	@Override
 	public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
 		int l = 0;
@@ -123,5 +123,5 @@ public class BlockArcticMoss extends Block implements IGrowable {
 			}
 		}
 	}
-	
+
 }

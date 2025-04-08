@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -26,14 +26,14 @@ public class BlockGrimstoneShrieker extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockGrimstoneShrieker() {
 		super(Material.rock);
 		this.setBlockUnbreakable();
 		this.setResistance(600000000);
 		this.setStepSound(ModSounds.soundGrimstone);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -47,7 +47,7 @@ public class BlockGrimstoneShrieker extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:warden_altar_top");
 		iconTop = iconRegister.registerIcon("nova_craft:warden_altar_top");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random random) {
@@ -62,23 +62,23 @@ public class BlockGrimstoneShrieker extends Block {
 			world.spawnParticle("townaura", f, f1, f2, -0.1D, 0.0D, 0.1D);
 			world.spawnParticle("townaura", f, f1, f2, 0.1D, 0.0D, -0.1D);
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if (world.isRemote) {
 	          return true;
 	      }
-		
+
     	Block block = world.getBlock(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
-		
+
 		ItemStack stack = player.inventory.getCurrentItem();
         if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.sculk_star) {
         	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar")));
         }
-        
+
         return true;
 	}
-	
+
 
 }

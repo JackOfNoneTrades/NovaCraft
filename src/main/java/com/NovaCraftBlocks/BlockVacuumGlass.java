@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,8 +16,8 @@ public class BlockVacuumGlass extends BlockBreakable
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
-    private static final String __OBFID = "CL_00000249";
+
+    //private static final String __OBFID = "CL_00000249";
 
     public BlockVacuumGlass(Material p_i45408_1_, boolean p_i45408_2_)
     {
@@ -28,11 +28,11 @@ public class BlockVacuumGlass extends BlockBreakable
 		this.setHarvestLevel("pickaxe", 0);
 		this.setStepSound(soundTypeGlass);
     }
-    
+
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
 		return null;
 	}
-    
+
     @Override
    	@SideOnly(Side.CLIENT)
    	public IIcon getIcon(int side, int meta){
@@ -79,7 +79,7 @@ public class BlockVacuumGlass extends BlockBreakable
     {
         return true;
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

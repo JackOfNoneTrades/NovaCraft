@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.special;
+package com.nova_craftBlocks.special;
 
 import net.minecraft.world.IBlockAccess;
 

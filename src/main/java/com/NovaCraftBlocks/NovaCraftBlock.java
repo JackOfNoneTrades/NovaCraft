@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

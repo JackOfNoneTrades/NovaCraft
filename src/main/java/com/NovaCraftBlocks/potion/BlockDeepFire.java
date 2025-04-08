@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import net.minecraft.client.renderer.texture.*;
 import cpw.mods.fml.relauncher.*;
@@ -7,10 +7,10 @@ import net.minecraft.init.*;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
-import com.NovaCraft.entity.EntityDeepoid;
-import com.NovaCraft.entity.EntityIonizatior;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.entity.EntityDeepoid;
+import com.nova_craft.entity.EntityIonizatior;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.player.*;
@@ -26,44 +26,44 @@ import net.minecraft.world.*;
 public class BlockDeepFire extends BlockFire
 {
     private IIcon[] field_149850_M;
-    
+
     public BlockDeepFire() {
         this.setLightLevel(1.0f);
         this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.015625f, 1.0f);
     }
-    
+
     public AxisAlignedBB getCollisionBoundingBoxFromPool(final World p_149668_1_, final int p_149668_2_, final int p_149668_3_, final int p_149668_4_) {
         return null;
     }
-    
+
     public boolean isCollidable() {
         return true;
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister p_149651_1_) {
     	this.field_149850_M = new IIcon[] { p_149651_1_.registerIcon("nova_craft:deepfire_0"), p_149651_1_.registerIcon("nova_craft:deepfire_1") };
     }
-    
+
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(final int i1, final int i2) {
         return this.field_149850_M[0];
     }
-    
+
     @SideOnly(Side.CLIENT)
     public IIcon getFireIcon(final int i1) {
         return this.field_149850_M[i1];
     }
-    
+
     @SideOnly(Side.CLIENT)
     public boolean addDestroyEffects(final World world, final int x, final int y, final int z, final int meta, final EffectRenderer effectRenderer) {
         return true;
     }
-    
+
     private boolean canNeighborBurn(final World world, final int x, final int y, final int z) {
         return Blocks.fire.canCatchFire((IBlockAccess)world, x + 1, y, z, ForgeDirection.WEST) || Blocks.fire.canCatchFire((IBlockAccess)world, x - 1, y, z, ForgeDirection.EAST) || Blocks.fire.canCatchFire((IBlockAccess)world, x, y - 1, z, ForgeDirection.UP) || Blocks.fire.canCatchFire((IBlockAccess)world, x, y + 1, z, ForgeDirection.DOWN) || Blocks.fire.canCatchFire((IBlockAccess)world, x, y, z - 1, ForgeDirection.SOUTH) || Blocks.fire.canCatchFire((IBlockAccess)world, x, y, z + 1, ForgeDirection.NORTH);
     }
-    
+
     private void tryCatchFire(final World world, final int x, final int y, final int z, final int i1, final Random rand, final int i2, final ForgeDirection face) {
         final int j1 = world.getBlock(x, y, z).getFlammability((IBlockAccess)world, x, y, z, face);
         if (rand.nextInt(i1) < j1) {
@@ -78,15 +78,15 @@ public class BlockDeepFire extends BlockFire
             }
         }
     }
-    
+
     public ItemStack getPickBlock(final MovingObjectPosition target, final World world, final int x, final int y, final int z, final EntityPlayer player) {
         return null;
     }
-    
+
     @Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if (!(entity instanceof EntityIonizatior)) {
-			
+
 			{
 				if (!entity.isImmuneToFire()) {
 				entity.attackEntityFrom(DamageSource.magic, 2.0F);
@@ -96,13 +96,13 @@ public class BlockDeepFire extends BlockFire
 				else {
 				entity.attackEntityFrom(DamageSource.magic, 2.0F);
 				entity.attackEntityFrom(DamageSource.generic, 2.0F);
-				entity.setFire(30);	
+				entity.setFire(30);
 				}
 			}
-		
-		}				
+
+		}
 	}
-    
+
     private int getChanceOfNeighborsEncouragingFire(final World world, final int x, final int y, final int z) {
         final byte b0 = 0;
         if (!world.isAirBlock(x, y, z)) {
@@ -117,7 +117,7 @@ public class BlockDeepFire extends BlockFire
         l = this.getChanceToEncourageFire((IBlockAccess)world, x, y, z + 1, l, ForgeDirection.NORTH);
         return l;
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -127,18 +127,18 @@ public class BlockDeepFire extends BlockFire
         	float f;
             float f1;
             float f2;
-            
+
         	 for (int i = 0; i < 2; ++i)
-        	    {       		 
+        	    {
         		 f = (float)p_149734_2_ + p_149734_5_.nextFloat() * 0.1F;
                  f1 = (float)p_149734_3_ + p_149734_5_.nextFloat();
                  f2 = (float)p_149734_4_ + p_149734_5_.nextFloat();
                  p_149734_1_.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
                  p_149734_1_.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
                  p_149734_1_.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
-             }        	    
+             }
         }
-        
+
         World par1World = p_149734_1_;
 		int par2 = p_149734_2_;
 		int par3 = p_149734_3_;
@@ -156,11 +156,11 @@ public class BlockDeepFire extends BlockFire
 				d3 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
 				d4 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
 				d5 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
-				ParticleHandler.BLAZFLAME.spawn(par1World, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]); 
+				ParticleHandler.BLAZFLAME.spawn(par1World, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
 			}
-        
+
     }
-    
+
     public void updateTick(final World world, final int x, final int y, final int z, final Random rand) {
         if (world.getGameRules().getGameRuleBooleanValue("doFireTick")) {
             final boolean flag = world.getBlock(x, y - 1, z).isFireSource(world, x, y - 1, z, ForgeDirection.UP) || world.getBlock(x, y - 1, z) == NovaCraftBlocks.deepfire;

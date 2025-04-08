@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,7 +22,7 @@ public class BlockCrackedEtherstoneBricks extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockCrackedEtherstoneBricks() {
 		super(Material.rock);
 		this.setHardness(2);
@@ -30,7 +30,7 @@ public class BlockCrackedEtherstoneBricks extends Block {
 		this.setStepSound(ModSounds.soundEtherstoneBricks);
 		this.setHarvestLevel("pickaxe", 1);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){

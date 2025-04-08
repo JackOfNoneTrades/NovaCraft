@@ -1,13 +1,13 @@
-package com.NovaCraftBlocks.plants.nether;
+package com.nova_craftBlocks.plants.nether;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -25,7 +25,7 @@ public class BlockFlamingPitcherBottom extends BlockBush
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] field_149883_a;
-    private static final String __OBFID = "CL_00000274";
+    //private static final String __OBFID = "CL_00000274";
 
     public BlockFlamingPitcherBottom()
     {
@@ -62,7 +62,7 @@ public class BlockFlamingPitcherBottom extends BlockBush
         {
             ++l;
             p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, l, 2);
-            
+
             if (l == 3)
             {
             	p_149674_1_.setBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_, NovaCraftBlocks.flaming_pitcher_top);
@@ -96,7 +96,7 @@ public class BlockFlamingPitcherBottom extends BlockBush
     public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_)
     {
         super.dropBlockAsItemWithChance(p_149690_1_, p_149690_2_, p_149690_3_, p_149690_4_, p_149690_5_, p_149690_6_, p_149690_7_);
-        
+
         if (false && !p_149690_1_.isRemote)
         {
             int j1 = 1;
@@ -156,7 +156,7 @@ public class BlockFlamingPitcherBottom extends BlockBush
 
         return ret;
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

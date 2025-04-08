@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.decorative;
+package com.nova_craftBlocks.decorative;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;

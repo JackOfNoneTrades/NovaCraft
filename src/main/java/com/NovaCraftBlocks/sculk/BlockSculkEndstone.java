@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.Random;
 
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.config.Configs;
+import com.nova_craft.registry.OtherModBlocks;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -53,19 +53,19 @@ public class BlockSculkEndstone extends Block implements IGrowable {
 					if (worldIn.getBlock(i1, j1, k1) == Blocks.stone && worldIn.getBlockLightValue(i1, j1 + 1, k1) <= 3 && worldIn.getBlockLightOpacity(i1, j1 + 1, k1) <= 2) {
 						worldIn.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_stone);
 					}
-					
+
 					else if (worldIn.getBlock(i1, j1, k1) == NovaCraftBlocks.grimstone && worldIn.getBlockLightValue(i1, j1 + 1, k1) <= 3 && worldIn.getBlockLightOpacity(i1, j1 + 1, k1) <= 2) {
 						worldIn.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_grimstone);
 					}
-					
+
 					else if (worldIn.getBlock(i1, j1, k1) == NovaCraftBlocks.nullstone && worldIn.getBlockLightValue(i1, j1 + 1, k1) <= 3 && worldIn.getBlockLightOpacity(i1, j1 + 1, k1) <= 2) {
 						worldIn.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_nullstone);
 					}
-					
+
 					else if (worldIn.getBlock(i1, j1, k1) == Blocks.end_stone && worldIn.getBlockLightValue(i1, j1 + 1, k1) <= 3 && worldIn.getBlockLightOpacity(i1, j1 + 1, k1) <= 2) {
 						worldIn.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_endstone);
 					}
-					
+
 					else if (worldIn.getBlock(i1, j1, k1) == OtherModBlocks.deepslate && worldIn.getBlockLightValue(i1, j1 + 1, k1) <= 3 && worldIn.getBlockLightOpacity(i1, j1 + 1, k1) <= 2) {
 						worldIn.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_deepslate);
 					}
@@ -90,7 +90,7 @@ public class BlockSculkEndstone extends Block implements IGrowable {
 		this.blockIcon = registry.registerIcon("nova_craft:sculk_endstone");
 		this.blockIconTop = registry.registerIcon("nova_craft:sculk_sensor_top");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
@@ -125,7 +125,7 @@ public class BlockSculkEndstone extends Block implements IGrowable {
 					k1 += p_149853_2_.nextInt(3) - 1;
 
 					if ((p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_stone || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_grimstone
-					   || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_nullstone || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_deepslate 
+					   || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_nullstone || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_deepslate
 					   || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_endstone) && !p_149853_1_.getBlock(i1, j1, k1).isNormalCube()) {
 						++l1;
 						continue;
@@ -164,7 +164,7 @@ public class BlockSculkEndstone extends Block implements IGrowable {
 			}
 		}
 	}
-	
+
 	@Override
 	public int tickRate(World world) {
 		return 30000;

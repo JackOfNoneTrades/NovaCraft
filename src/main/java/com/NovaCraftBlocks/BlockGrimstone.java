@@ -1,9 +1,9 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,7 +22,7 @@ public class BlockGrimstone extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockGrimstone() {
 		super(Material.rock);
 		this.setHardness(3);
@@ -30,7 +30,7 @@ public class BlockGrimstone extends Block {
 		this.setStepSound(ModSounds.soundGrimstone);
 		this.setHarvestLevel("pickaxe", 1);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -44,7 +44,7 @@ public class BlockGrimstone extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:grimstonenew_top");
 		iconTop = iconRegister.registerIcon("nova_craft:grimstonenew_top");
 	}
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return Item.getItemFromBlock(NovaCraftBlocks.cobbled_grimstone);
     }

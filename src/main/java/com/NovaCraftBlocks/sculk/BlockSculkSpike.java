@@ -1,20 +1,20 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.List;
 import java.util.Random;
 
-import com.NovaCraft.Item.Block.ItemAetherCluster;
-import com.NovaCraft.Item.Block.ItemSculkSpike;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
-import com.NovaCraft.core.Utils;
-import com.NovaCraft.entity.EntitySculkAbomination;
-import com.NovaCraft.entity.EntitySculkSymbiote;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
+import com.nova_craft.Item.Block.ItemAetherCluster;
+import com.nova_craft.Item.Block.ItemSculkSpike;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.achievements.AchievementsNovaCraft;
+import com.nova_craft.core.Utils;
+import com.nova_craft.entity.EntitySculkAbomination;
+import com.nova_craft.entity.EntitySculkSymbiote;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks.ISubBlocksBlock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,7 +41,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class BlockSculkSpike extends Block implements ISubBlocksBlock {
-	
+
 	private final int type;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
@@ -61,7 +61,7 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
    {
         return null;
     }
-    
+
     protected ItemStack createStackedBlock(int p_149644_1_)
     {
         int j = 0;
@@ -74,15 +74,15 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 
         return new ItemStack(item, 1, j);
     }
-	
+
     protected boolean canSilkHarvest()
     {
     	return true;
     }
-    
+
     @Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {		
-    	
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+
  		if (entity instanceof EntityPlayer) {
  			int rand = (int)(1 + Math.random() * 10);
  			if (rand == 1 && !entity.isSneaking()) {
@@ -91,9 +91,9 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
  			sculk.setPosition(x + 0.5D, y + 1D, z + 0.5D);
 
 				if (!world.isRemote) {
-					world.spawnEntityInWorld(sculk);		
+					world.spawnEntityInWorld(sculk);
 				}
-				
+
  			}
  			int rand2 = (int)(1 + Math.random() * 75);
  			if (rand2 == 10 && !entity.isSneaking()) {
@@ -102,18 +102,18 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
  	 			sculk2.setPosition(x + 0.5D, y + 1D, z + 0.5D);
 
  					if (!world.isRemote) {
- 						world.spawnEntityInWorld(sculk2);		
+ 						world.spawnEntityInWorld(sculk2);
  					}
- 					
+
  	 		}
  		}
  	}
-    
+
     public void onBlockDestroyedByPlayer(World p_149664_1_, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_)
-    { 
- 		
+    {
+
         if (!p_149664_1_.isRemote)
-        {       	
+        {
         	int rand = (int)(1 + Math.random() * 4);
     		switch (rand)
           {
@@ -126,10 +126,10 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
           	case 2:
           		break;
           	case 3:
-              	break;	
+              	break;
           	case 4:
-              	break;	
-          		
+              	break;
+
           }
         }
 
@@ -140,7 +140,7 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
     {
         return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
     }
-   
+
     private boolean harvestingWithPickaxe() {
     	return harvesters.get() != null && harvesters.get().getCurrentEquippedItem() != null && harvesters.get().getCurrentEquippedItem().getItem().getToolClasses(harvesters.get().getCurrentEquippedItem()).contains("pickaxe");
     }
@@ -149,7 +149,7 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
 		return side + meta;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -225,19 +225,19 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
         super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
         this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
     }
-    
+
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		return this.canPlaceBlockOnSide(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
-	
+
 	@Override
     public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
     {
 		EnumFacing facing = EnumFacing.getFront(side);
 		return world.getBlock(x - facing.getFrontOffsetX(), y - facing.getFrontOffsetY(), z - facing.getFrontOffsetZ()).isOpaqueCube();
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta)
@@ -245,10 +245,10 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 		if (meta < 0 || meta >= this.icons.length) {
             meta = 1;
         }
-		
+
 		return this.icons[meta < 6 ? 0 : 1];
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_)
@@ -259,7 +259,7 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 		}
 		super.registerBlockIcons(p_149651_1_);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
 	{
@@ -286,18 +286,18 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 	public Class<? extends ItemBlock> getItemBlockClass() {
 		return ItemSculkSpike.class;
 	}
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			((EntityLivingBase)player).addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0));
 			((EntityLivingBase)player).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 0));
-		
+
 		}
-		
+
 	}
-	
+
 	@Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -308,10 +308,10 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
             ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        }	
-        
+        }
+
     }
-	
+
 	@Override
 	public int tickRate(World world) {
 		return 2500;

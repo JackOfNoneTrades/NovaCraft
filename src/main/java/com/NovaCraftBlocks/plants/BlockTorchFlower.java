@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -42,10 +42,10 @@ public class BlockTorchFlower extends BlockBush {
 		return (soil != null && this.canPlaceBlockAt(world, x, y, z));
 	}
 
-	public int getRenderType() {    
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {
@@ -56,7 +56,7 @@ public class BlockTorchFlower extends BlockBush {
 		if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
 			return;
 		}
-		
+
         int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
         double d0 = (double)((float)p_149734_2_ + 0.5F);
         double d1 = (double)((float)p_149734_3_ + 1.0F);
@@ -85,5 +85,5 @@ public class BlockTorchFlower extends BlockBush {
             p_149734_1_.spawnParticle("flame", d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
     }
-	
+
 }

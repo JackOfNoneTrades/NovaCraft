@@ -1,16 +1,16 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import java.util.List;
 import java.util.Random;
 
-import com.NovaCraft.Item.Block.ItemSculkTentacle;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.core.Utils;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
+import com.nova_craft.Item.Block.ItemSculkTentacle;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.core.Utils;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.NovaCraftBlocks.ISubBlocksBlock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -31,7 +31,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
-	
+
 	private final int type;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
@@ -46,12 +46,12 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
 		this.type = type;
 		this.setTickRandomly(true);
 	}
-	
+
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
 	  {
 	       return p_149854_1_ == NovaCraftBlocks.sculk_block;
 	  }
-    
+
     protected ItemStack createStackedBlock(int p_149644_1_)
     {
         int j = 0;
@@ -64,7 +64,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
 
         return new ItemStack(item, 1, j);
     }
-	
+
     protected boolean canSilkHarvest()
     {
     	return true;
@@ -74,7 +74,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
     {
         return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
     }
-    
+
     public int quantityDropped(int meta, int fortune, Random random)
     {
     	if(this == NovaCraftBlocks.sculk_tentacle_2 && meta >= 6) {
@@ -94,11 +94,11 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
     	}
     	return 2;
     }
-    
+
     private boolean harvestingWithHoe() {
     	return harvesters.get() != null && harvesters.get().getCurrentEquippedItem() != null && harvesters.get().getCurrentEquippedItem().getItem().getToolClasses(harvesters.get().getCurrentEquippedItem()).contains("axe");
     }
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -145,8 +145,8 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
             p_149855_1_.setBlockToAir(p_149855_2_, p_149855_3_, p_149855_4_);
         }
     }
-    
-    @Override 
+
+    @Override
     public void onNeighborBlockChange(final World world, final int i, final int j, final int k, final Block l) {
         final int md = world.getBlockMetadata(i, j, k);
         if (this.checkIfAttachedToBlock(world, i, j, k)) {
@@ -175,7 +175,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
             }
         }
     }
-    
+
     private boolean checkIfAttachedToBlock(final World world, final int i, final int j, final int k) {
         if (!this.canPlaceBlockAt(world, i, j, k)) {
             this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
@@ -184,7 +184,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
         }
         return true;
     }
-    
+
     public void updateTick(final World world, final int x, final int y, final int z, final Random rand) {
         final int meta = world.getBlockMetadata(x, y, z);
         int attempt = 0;
@@ -313,15 +313,15 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
             }
         }
     }
-    
+
     public boolean canPlaceBlockAt(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));
     }
-    
+
     public boolean canBlockStay(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));
     }
-    
+
     public int onBlockPlaced(final World world, final int x, final int y, final int z, final int side, final float hitX, final float hitY, final float hitZ, int meta) {
         if (side == 0 && world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN)) {
             meta = 0;
@@ -343,14 +343,14 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
         }
         return meta;
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_)
 	{
 		return this.icons[p_149691_2_ < 6 ? 0 : 1];
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_)
@@ -366,7 +366,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
 		}
 		super.registerBlockIcons(p_149651_1_);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
 	{
@@ -393,8 +393,8 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
 	public Class<? extends ItemBlock> getItemBlockClass() {
 		return ItemSculkTentacle.class;
 	}
-	
-	
+
+
 	 @Override
 	    @SideOnly(Side.CLIENT)
 	    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -405,7 +405,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
 	            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
 	            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
 	            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-	        }	
-	        
+	        }
+
 	    }
 }

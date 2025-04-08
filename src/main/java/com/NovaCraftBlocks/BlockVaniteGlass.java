@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
 
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -16,8 +16,8 @@ public class BlockVaniteGlass extends BlockBreakable
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
-    private static final String __OBFID = "CL_00000249";
+
+    //private static final String __OBFID = "CL_00000249";
 
     public BlockVaniteGlass(Material p_i45408_1_, boolean p_i45408_2_)
     {
@@ -60,7 +60,7 @@ public class BlockVaniteGlass extends BlockBreakable
     {
         return true;
     }
-    
+
     @Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){

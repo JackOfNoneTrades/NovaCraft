@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
@@ -63,11 +63,11 @@ public class BlockLuminantLeaves extends BlockLeaves {
 	public Item getItemDropped(int meta, Random random, int fortune) {
 		return this == NovaCraftBlocks.luminant_leaves ? (NovaCraftItems.luminant_tree_sap) : null ;
 	}
-	
+
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int l) {
 		int rand2 = (int)(1 + Math.random() * 8);
 		switch (rand2) {
-		
+
 		case 1: if (!world.isRemote) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.luminant_apple, 1));
 
@@ -100,7 +100,7 @@ public class BlockLuminantLeaves extends BlockLeaves {
 		case 8: if (!world.isRemote) {
 			return;
 		  }
-		
+
 		}
 	}
 
@@ -124,10 +124,10 @@ public class BlockLuminantLeaves extends BlockLeaves {
 			return fastIcon;
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
-    {		
+    {
 		if (!p_149734_1_.isRemote) {
 			return;
 		}
@@ -135,7 +135,7 @@ public class BlockLuminantLeaves extends BlockLeaves {
 		if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
 			return;
 		}
-		
+
         int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
         double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
         double d1 = (double)((float)p_149734_3_ - 1.0F);

@@ -1,10 +1,10 @@
-package com.NovaCraftBlocks;
+package com.nova_craftBlocks;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.sounds.ModSounds;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -25,7 +25,7 @@ public class BlockFlamingNullwartBricks extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockFlamingNullwartBricks() {
 		super(Material.rock);
 		this.setHardness(5.5F);
@@ -33,17 +33,17 @@ public class BlockFlamingNullwartBricks extends Block {
 		this.setStepSound(ModSounds.soundGrimstoneBricks);
 		this.setHarvestLevel("pickaxe", 1);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
 		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
 	}
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return Item.getItemFromBlock(NovaCraftBlocks.nullwart_bricks);
     }
-	
+
 	protected boolean canSilkHarvest() {
 	    return false;
 	 }
@@ -55,18 +55,18 @@ public class BlockFlamingNullwartBricks extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:flaming_nullwart_bricks");
 		iconTop = iconRegister.registerIcon("nova_craft:flaming_nullwart_bricks");
 	}
-	
+
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
  		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
-			
+
 			entity.attackEntityFrom(DamageSource.magic, 1.0F);
 			entity.attackEntityFrom(DamageSource.inFire, 1.0F);
 			entity.setFire(7);
  		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {

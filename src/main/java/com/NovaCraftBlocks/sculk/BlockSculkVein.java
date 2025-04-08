@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.sculk;
+package com.nova_craftBlocks.sculk;
 
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
@@ -11,15 +11,15 @@ import net.minecraft.block.*;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
-import com.NovaCraft.particles.ParticleDarkLichen;
-import com.NovaCraft.particles.ParticleDarkLichenThree;
-import com.NovaCraft.particles.ParticleDarkLichenTwo;
-import com.NovaCraft.particles.ParticleGlowLichen;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
+import com.nova_craft.particles.ParticleDarkLichen;
+import com.nova_craft.particles.ParticleDarkLichenThree;
+import com.nova_craft.particles.ParticleDarkLichenTwo;
+import com.nova_craft.particles.ParticleGlowLichen;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.registry.NovaCraftCreativeTabs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
+import com.nova_craftBlocks.special.IEmissiveLayerBlock;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -29,7 +29,7 @@ public class BlockSculkVein extends BlockBush
 {
 	private static final String[] types;
     private IIcon[] icon;
-    
+
     public BlockSculkVein() {
         super(Material.plants);
         this.icon = new IIcon[2];
@@ -40,58 +40,58 @@ public class BlockSculkVein extends BlockBush
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
         this.setTickRandomly(true);
     }
-    
+
     protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
-        return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_block || 
+        return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_block ||
         		p_149854_1_ == NovaCraftBlocks.sculk_deepslate || p_149854_1_ == NovaCraftBlocks.sculk_grimstone || p_149854_1_ == NovaCraftBlocks.sculk_stone);
     }
 
-    
+
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.icon[0] = iconRegister.registerIcon("nova_craft:sculk_vein");
         this.icon[1] = iconRegister.registerIcon("nova_craft:sculk_vein");
     }
-	
+
 	public IIcon getIcon(final int side, int meta) {
         if (meta < 0 || meta >= this.icon.length) {
             meta = 1;
         }
         return this.icon[meta];
     }
-	
+
 	public void getSubBlocks(final Item block, final CreativeTabs creativeTabs, final List list) {
         for (int i = 0; i < BlockSculkVein.types.length; ++i) {
             list.add(new ItemStack(block, 1, i));
         }
     }
-    
+
     public int getRenderType() {
         return 0;
     }
-    
+
     public int damageDropped(final int meta) {
         return 0;
     }
-    
+
     public boolean isOpaqueCube() {
         return false;
     }
-    
+
     public boolean renderAsNormalBlock() {
         return false;
     }
-    
+
     public void setBlockBoundsForItemRender() {
         this.func_150089_b(0);
     }
-    
+
     protected void func_150089_b(final int p_150089_1_) {
         final byte b0 = 0;
         final float f = 1 * (1 + b0) / 16.0f;
         this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
     }
-    
+
     public void setBlockBoundsBasedOnState(final IBlockAccess access, final int x, final int y, final int z) {
         final int meta = access.getBlockMetadata(x, y, z);
         float widthMin = 0.0f;
@@ -100,7 +100,7 @@ public class BlockSculkVein extends BlockBush
         float widthMax = 0.0f;
         float heightMax = 0.0f;
         float depthMax = 0.0f;
-        
+
             switch (meta) {
                 case 0: {
                     widthMin = 0.0f;
@@ -210,11 +210,11 @@ public class BlockSculkVein extends BlockBush
                     depthMax = 0.0f;
                     break;
                 }
-            }                 
-        
+            }
+
         this.setBlockBounds(0.0f + widthMin, 0.0f + heightMin, 0.0f + depthMin, 1.0f - widthMax, 1.0f - heightMax, 1.0f - depthMax);
     }
-    
+
     public void onNeighborBlockChange(final World world, final int i, final int j, final int k, final Block l) {
         final int md = world.getBlockMetadata(i, j, k);
         if (this.checkIfAttachedToBlock(world, i, j, k)) {
@@ -243,7 +243,7 @@ public class BlockSculkVein extends BlockBush
             }
         }
     }
-    
+
     private boolean checkIfAttachedToBlock(final World world, final int i, final int j, final int k) {
         if (!this.canPlaceBlockAt(world, i, j, k)) {
             this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
@@ -252,15 +252,15 @@ public class BlockSculkVein extends BlockBush
         }
         return true;
     }
-    
+
     public boolean canPlaceBlockAt(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));
     }
-    
+
     public boolean canBlockStay(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));
     }
-    
+
     public int onBlockPlaced(final World world, final int x, final int y, final int z, final int side, final float hitX, final float hitY, final float hitZ, int meta) {
         if (side == 0 && world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN)) {
             meta = 0;
@@ -282,7 +282,7 @@ public class BlockSculkVein extends BlockBush
         }
         return meta;
     }
-    
+
     public void updateTick(final World world, final int x, final int y, final int z, final Random rand) {
         final int meta = world.getBlockMetadata(x, y, z);
         int attempt = 0;
@@ -410,16 +410,16 @@ public class BlockSculkVein extends BlockBush
             }
         }
     }
-    
+
     static {
         types = new String[] { "default" };
     }
-    
+
     protected boolean canSilkHarvest()
     {
     	return true;
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
@@ -430,8 +430,8 @@ public class BlockSculkVein extends BlockBush
             ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        }	
-        
+        }
+
     }
 }
 

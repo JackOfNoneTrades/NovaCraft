@@ -1,4 +1,4 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import java.util.ArrayList;
 import java.util.Random;

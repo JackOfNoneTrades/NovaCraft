@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.plants;
+package com.nova_craftBlocks.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -24,7 +24,7 @@ public class BlockNullWart extends BlockBush
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] field_149883_a;
-    private static final String __OBFID = "CL_00000274";
+    //private static final String __OBFID = "CL_00000274";
 
     public BlockNullWart()
     {
@@ -90,7 +90,7 @@ public class BlockNullWart extends BlockBush
     public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_)
     {
         super.dropBlockAsItemWithChance(p_149690_1_, p_149690_2_, p_149690_3_, p_149690_4_, p_149690_5_, p_149690_6_, p_149690_7_);
-        
+
         if (false && !p_149690_1_.isRemote)
         {
             int j1 = 1;

@@ -1,11 +1,11 @@
-package com.NovaCraftBlocks.stalagmites;
+package com.nova_craftBlocks.stalagmites;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -27,7 +27,7 @@ public class BlockSmallPherithiumStalagmite extends Block {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
+
 	public BlockSmallPherithiumStalagmite() {
 		super(Material.rock);
 		this.setHardness(3);
@@ -37,12 +37,12 @@ public class BlockSmallPherithiumStalagmite extends Block {
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 2);
 	}
-	
+
 	 protected boolean canPlaceBlockOn(Block p_149854_1_)
 	  {
 	       return p_149854_1_ == Blocks.stone;
 	  }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
@@ -56,7 +56,7 @@ public class BlockSmallPherithiumStalagmite extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:pherithium_stalagmite_small");
 		iconTop = iconRegister.registerIcon("nova_craft:pherithium_stalagmite_small");
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -66,24 +66,24 @@ public class BlockSmallPherithiumStalagmite extends Block {
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public int getRenderType() {    
+
+	public int getRenderType() {
 		return 1;
 	  }
-	
+
 	protected boolean canSilkHarvest()
     {
     	return true;
     }
-	
+
 	public int quantityDropped(final Random random) {
         return 2 + random.nextInt(6);
     }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.pherithium_scraps;
     }
-	
+
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
@@ -98,23 +98,23 @@ public class BlockSmallPherithiumStalagmite extends Block {
 			return this.quantityDropped(random);
 		}
 	}
-	
+
 	@Override
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {
 		Random random = new Random();
 
 		if (this.getItemDropped(p_149690_5_, random, p_149690_7_) != Item.getItemFromBlock(this)) {
-			int amount = 0;	
-			
+			int amount = 0;
+
 				amount = MathHelper.getRandomIntegerInRange(random, 2, 3);
-			
+
 
 			return amount;
 		}
 
 		return 0;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {

@@ -1,12 +1,12 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import java.util.Random;
 
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.renderer.RenderIDs;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.particles.ParticleHandler;
+import com.nova_craft.renderer.RenderIDs;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,7 +23,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockMoltenVaniteCrystalCauldron extends BlockCauldron {
-	
+
 	public BlockMoltenVaniteCrystalCauldron() {
 		super();
 		this.setHardness(12);
@@ -34,15 +34,15 @@ public class BlockMoltenVaniteCrystalCauldron extends BlockCauldron {
 		setHarvestLevel("pickaxe", 3);
 		this.setCreativeTab((CreativeTabs)null);
 	}
-	
+
 	protected boolean canSilkHarvest() {
 	    return false;
 	 }
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.vanite_cauldron_item;
     }
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
@@ -57,10 +57,10 @@ public class BlockMoltenVaniteCrystalCauldron extends BlockCauldron {
 		}
 		if (!world.isRemote) {
 			entity.attackEntityFrom(DamageSource.lava, 4.0F);
-			entity.setFire(15);			
+			entity.setFire(15);
 		}
 	}
-	
+
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
 
@@ -70,39 +70,39 @@ public class BlockMoltenVaniteCrystalCauldron extends BlockCauldron {
 			&& world.getBlock(i + 1, j, k) == NovaCraftBlocks.blazlinite
 			&& world.getBlock(i - 1, j, k) == NovaCraftBlocks.blazlinite
 			&& world.getBlock(i, j - 1, k) == NovaCraftBlocks.deepfire) {
-				
+
 			world.setBlock(i, j, k, NovaCraftBlocks.cracked_vanite_crystal_cauldron, 0, 2);
 			world.setBlock(i, j + 1, k, NovaCraftBlocks.vanite_cluster, 1, 2);
-			
+
 			world.setBlock(i, j, k + 1, Blocks.air, 0, 2);
 			world.setBlock(i, j, k - 1, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j, k, Blocks.air, 0, 2);
 			world.setBlock(i - 1, j, k, Blocks.air, 0, 2);
 			world.setBlock(i, j - 1, k, Blocks.netherrack, 0, 2);
-			
+
             world.playSoundEffect((double)(i + 0.5f), (double)(j + 0.5f), (double)(k + 0.5f), "nova_craft:crystal.break", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 			}
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public static IIcon getCauldronIcon(String p_150026_0_)
     {
         return (IIcon) (p_150026_0_.equals("inner") ? NovaCraftBlocks.vanite_cauldron : (p_150026_0_.equals("bottom") ? NovaCraftBlocks.vanite_cauldron : null));
     }
-	
+
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
 		return Blocks.cauldron.getIcon(side, meta);
 	}
-	
+
 	@Override
 	public int tickRate(World world)
 	{
 		return 500;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
@@ -126,18 +126,18 @@ public class BlockMoltenVaniteCrystalCauldron extends BlockCauldron {
 				par1World.spawnParticle("reddust", d0, d1, d2, d3, d4, d5);
 				if (random.nextInt(50) == 0)
 	            {
-				ParticleHandler.BLAZFLAME.spawn(par1World, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]); 
+				ParticleHandler.BLAZFLAME.spawn(par1World, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
 	            }
 			}
 
 	}
-	
+
 	@Override
 	public int getRenderType()
 	{
 		return RenderIDs.MOLTEN_VANITE_CRYSTAL_CAULDRON;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
     public static float getRenderLiquidLevel(int p_150025_0_)
     {

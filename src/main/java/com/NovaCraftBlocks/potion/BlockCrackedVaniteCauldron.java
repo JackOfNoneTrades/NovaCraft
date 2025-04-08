@@ -1,14 +1,14 @@
-package com.NovaCraftBlocks.potion;
+package com.nova_craftBlocks.potion;
 
 import net.minecraft.block.*;
 import net.minecraft.util.*;
 
 import java.util.Random;
 
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.nova_craft.NovaCraft;
+import com.nova_craft.Items.NovaCraftItems;
+import com.nova_craft.sounds.ModSounds;
+import com.nova_craftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.block.material.*;
@@ -21,10 +21,10 @@ import net.minecraft.client.renderer.texture.*;
 
 public class BlockCrackedVaniteCauldron extends Block
 {
-    
+
     @SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-    
+
     public BlockCrackedVaniteCauldron() {
         super(Material.iron);
         this.setHardness(12);
@@ -32,21 +32,21 @@ public class BlockCrackedVaniteCauldron extends Block
 		this.setStepSound(ModSounds.soundNullstone);
 		setHarvestLevel("pickaxe", 3);
     }
-    
+
     @Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta){
 		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
 	}
-    
+
     public int quantityDropped(final Random random) {
         return 2 + random.nextInt(2);
     }
- 	
+
  	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.vanite_ingot;
     }
- 	
+
  	@Override
  	public int quantityDroppedWithBonus(int fortune, Random random) {
  		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
@@ -61,12 +61,12 @@ public class BlockCrackedVaniteCauldron extends Block
  			return this.quantityDropped(random);
  		}
  	}
- 	
+
  	protected boolean canSilkHarvest()
     {
     	return false;
     }
-	 
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -76,7 +76,7 @@ public class BlockCrackedVaniteCauldron extends Block
 	public boolean isOpaqueCube() {
 		return false;
 	}
-    
+
     @Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister){
